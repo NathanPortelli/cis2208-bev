@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/homeLayout"
+    tools:context=".Home">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/include"
+            layout="@layout/main_toolbar" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="60dp">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp">
+
+                <TextView
+                    android:id="@+id/articleTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="75dp"
+                    android:layout_marginTop="30sp"
+                    android:text="Submit an Article"
+                    android:textAlignment="center"
+                    android:textSize="40sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/txArticleTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30sp"
+                    android:text="Title"
+                    android:textSize="30sp"
+                    app:layout_constraintTop_toBottomOf="@+id/articleTitle"
+                    tools:layout_editor_absoluteX="16dp" />
+
+                <EditText
+                    android:id="@+id/edArticleTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:hint="Title of Article"
+                    android:inputType="text"
+                    app:layout_constraintTop_toBottomOf="@+id/txArticleTitle" />
+
+                <TextView
+                    android:id="@+id/txArticleCategory"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Category"
+                    android:textSize="30sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/edArticleTitle" />
+
+                <Spinner
+                    android:id="@+id/spArticleCategory"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:entries="@array/categories"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txArticleCategory" />
+
+                <TextView
+                    android:id="@+id/txArticleText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Article Text"
+                    android:textSize="30sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/spArticleCategory" />
+
+                <EditText
+                    android:id="@+id/edArticleText"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:gravity="bottom|start"
+                    android:hint="Write the article here."
+                    android:inputType="textMultiLine"
+                    android:scrollbars="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txArticleText" />
+
+                <TextView
+                    android:id="@+id/articleImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30sp"
+                    android:text="Thumbnail"
+                    android:textSize="30sp"
+                    app:layout_constraintTop_toBottomOf="@+id/edArticleText"
+                    tools:layout_editor_absoluteX="16dp" />
+
+                <ImageButton
+                    android:id="@+id/articleImgUpload"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/articleImage"
+                    app:srcCompat="@drawable/defaultprofile" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Upload Image"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:textAlignment="center"
+                    app:layout_constraintBottom_toBottomOf="@+id/articleImgUpload"
+                    app:layout_constraintEnd_toEndOf="@+id/articleImgUpload"
+                    app:layout_constraintStart_toStartOf="@+id/articleImgUpload"
+                    app:layout_constraintTop_toBottomOf="@+id/articleImgUpload" />
+
+                <Button
+                    android:id="@+id/btnSignUpRegister"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:layout_marginHorizontal="60dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:text="Submit"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    app:layout_constraintTop_toBottomOf="@+id/articleImgUpload"
+                    tools:layout_editor_absoluteX="60dp" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true">
+        <include
+            layout="@layout/home_nav_drawer"/>
+
+    </com.google.android.material.navigation.NavigationView>
+</androidx.drawerlayout.widget.DrawerLayout>

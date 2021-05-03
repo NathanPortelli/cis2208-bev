@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">BEVProject</string>
+
+    <string-array name="categories">
+        <item>Politics</item>
+        <item>Social</item>
+        <item>Opinion</item>
+    </string-array>
 </resources>

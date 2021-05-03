@@ -6,12 +6,9 @@ import androidx.core.app.ActivityCompat;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.database.Cursor;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
@@ -42,14 +39,14 @@ public class SignUp extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSupportActionBar().hide();
+        //getSupportActionBar().hide();
         setContentView(R.layout.activity_signup);
 
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE}, PackageManager.PERMISSION_GRANTED);
 
         name = (EditText) findViewById(R.id.edName);
         email = (EditText) findViewById(R.id.edEmail);
-        pass = (EditText) findViewById(R.id.edPass);
+        pass = (EditText) findViewById(R.id.edPassword);
         bio = (EditText) findViewById(R.id.edBio);
         db = new DBHelper(this);
 
@@ -92,7 +89,7 @@ public class SignUp extends AppCompatActivity
                     Boolean userCheck = db.checkEmail(useremail);
                     if(userCheck == false)
                     {
-                        Boolean result = db.insertUser(username, useremail, userpass, userbio, imageData);
+                        Boolean result = db.insertUser(useremail, username, userpass, userbio, imageData);
                         if(result == true)
                         {
                             openHomePage();
@@ -105,7 +102,7 @@ public class SignUp extends AppCompatActivity
                         }
                     }
                     else
-                        Toast.makeText(SignUp.this, "Email is already registered. Please sign in.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SignUp.this, "Email is already registered.\nPlease sign in.", Toast.LENGTH_SHORT).show();
                 }
             }
         });

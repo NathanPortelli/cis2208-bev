@@ -12,9 +12,15 @@ import androidx.annotation.Nullable;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DBHelper extends SQLiteOpenHelper
 {
+    private static final String ARTICLES_TABLE = "articles";
+    private static final String ARTICLES_COLUMN_TITLE = "title";
+    List<Articles> articleList = new ArrayList<>();
+
     public DBHelper(@Nullable Context context)
     {
         super(context, "BEVDB.db", null, 1);
@@ -24,12 +30,46 @@ public class DBHelper extends SQLiteOpenHelper
     public void onCreate(SQLiteDatabase db)
     {
         db.execSQL("create Table users(email Text primary key, name Text, password Text, bio Text, img Blob)");
+        db.execSQL("create Table articles(title Text primary key, content Text, category Text, img Blob)");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion)
     {
         db.execSQL("drop Table if exists users");
+        db.execSQL("drop Table if exists articles");
+    }
+
+    public Boolean insertArticle(String title, String content, String category, byte[] img)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("title", title);
+        contentValues.put("content", content);
+        contentValues.put("category", category);
+        contentValues.put("img", img);
+
+        long articleDetails = db.insert("articles", null, contentValues);
+        if(articleDetails == -1)
+            return false;
+        else
+            return true;
+    }
+
+    public List<Articles> getAllArticles()
+    {
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("select * from " + ARTICLES_TABLE, null);
+
+        while(cursor.moveToNext())
+        {
+            int index = cursor.getColumnIndex(ARTICLES_COLUMN_TITLE);
+            String title = cursor.getString(index);
+            Articles article = new Articles(title);
+            articleList.add(article);
+        }
+        return articleList;
     }
 
     public Boolean insertUser(String email, String name, String password, String bio, byte[] img)
@@ -65,6 +105,17 @@ public class DBHelper extends SQLiteOpenHelper
     {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery("select * from users where email = ? and password = ?", new String[] {email, password});
+        if(cursor.getCount()>0)
+            return true;
+        else
+            return false;
+    }
+
+    //if exists
+    public Boolean checkTitle(String title)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("select * from articles where title = ?", new String[] {title});
         if(cursor.getCount()>0)
             return true;
         else

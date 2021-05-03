@@ -21,7 +21,7 @@
             android:layout_marginTop="30sp"
             android:text="Sign Up"
             android:textAlignment="center"
-            android:textSize="50dp"
+            android:textSize="50sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -66,7 +66,7 @@
             app:layout_constraintTop_toBottomOf="@+id/txEmail" />
 
         <TextView
-            android:id="@+id/txPass"
+            android:id="@+id/txPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -77,25 +77,23 @@
             app:layout_constraintTop_toBottomOf="@+id/edEmail" />
 
         <EditText
-            android:id="@+id/edPass"
+            android:id="@+id/edPassword"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:inputType="textPassword"
-            android:hint="••••••••"
-            android:text="Password"
-            android:textSize="10sp"
+            android:hint="Enter a strong password"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txPass" />
+            app:layout_constraintTop_toBottomOf="@+id/txPassword" />
 
         <TextView
             android:id="@+id/txPassGuide"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Must contain a minimum of 8 characters, including letters, numbers and special character."
+            android:text="Must contain a minimum of 8 characters, including letters, numbers and a special character"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edPass" />
+            app:layout_constraintTop_toBottomOf="@+id/edPassword" />
 
         <TextView
             android:id="@+id/txBio"
