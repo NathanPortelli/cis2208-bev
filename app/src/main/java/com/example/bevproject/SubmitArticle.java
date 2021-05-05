@@ -1,5 +1,6 @@
 package com.example.bevproject;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.view.GravityCompat;
@@ -11,6 +12,8 @@ import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -21,6 +24,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -91,14 +95,19 @@ public class SubmitArticle extends AppCompatActivity implements AdapterView.OnIt
             {
                 String articletitle = title.getText().toString();
                 String articletext = text.getText().toString();
+                ImageView articleImage = imgUpload;
                 //String articleCategory = spinner.toString();
-
+                
                 if(articletitle.equals("") || articletext.equals(""))
                     Toast.makeText(SubmitArticle.this, "Please fill in all the information.", Toast.LENGTH_SHORT).show();
+                else if(imageData == null)
+                    Toast.makeText(SubmitArticle.this, "Please upload an image.", Toast.LENGTH_SHORT).show();
                 else
                 {
-                    Boolean articleCheck = db.checkTitle(articletitle); //ADD CHECK FOR TITLE
-                    if(articleCheck == false)
+                    Boolean titleCheck = db.checkTitle(articletitle);
+                    if(titleCheck == true)
+                        Toast.makeText(SubmitArticle.this, "An article with the same title already exists.", Toast.LENGTH_LONG).show();
+                    else
                     {
                         Boolean result = db.insertArticle(articletitle, articletext, categoryChoice, imageData);
                         if(result == true)
@@ -112,8 +121,6 @@ public class SubmitArticle extends AppCompatActivity implements AdapterView.OnIt
                             Toast.makeText(SubmitArticle.this, "Submission has failed.", Toast.LENGTH_SHORT).show();
                         }
                     }
-                    else
-                        Toast.makeText(SubmitArticle.this, "An article with the same title already exists.", Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -151,12 +158,10 @@ public class SubmitArticle extends AppCompatActivity implements AdapterView.OnIt
         //REDIRECT TO USER PROFILE
         //redirectActivity(this, );
     }
-
     public void ClickArticleCreate(View view)
     {
         recreate();
     }
-
     public void ClickLogout(View view)
     {
         finish();
@@ -170,7 +175,6 @@ public class SubmitArticle extends AppCompatActivity implements AdapterView.OnIt
         if(requestCode == PICK_IMAGE && resultCode == RESULT_OK)
         {
             imageUri = data.getData();
-
             try
             {
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), imageUri);
@@ -189,5 +193,13 @@ public class SubmitArticle extends AppCompatActivity implements AdapterView.OnIt
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.PNG, 0, outputStream);
         return outputStream.toByteArray();
+    }
+
+    private boolean hasImage(@NonNull ImageView view) {
+        Drawable drawable = view.getDrawable();
+        boolean hasImage = (drawable != null);
+        if (hasImage && (drawable instanceof BitmapDrawable))
+            hasImage = ((BitmapDrawable)drawable).getBitmap() != null;
+        return hasImage;
     }
 }

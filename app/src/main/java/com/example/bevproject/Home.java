@@ -30,6 +30,8 @@ public class Home extends AppCompatActivity
     RecyclerView.LayoutManager layoutManager;
     List<Articles> articleList = new ArrayList<>();
 
+    private ArticleAdapter.ArticleViewClickListener listener;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,11 +44,23 @@ public class Home extends AppCompatActivity
         rvArticles = findViewById(R.id.rvArticles);
         rvArticles.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
-        rvArticles.setLayoutManager(layoutManager);
-        articleAdapter = new ArticleAdapter(this, articleList, rvArticles);
-        rvArticles.setAdapter(articleAdapter);
 
-        //db.insertArticle("Test Article");
+        setOnClickListener();
+        rvArticles.setLayoutManager(layoutManager);
+        articleAdapter = new ArticleAdapter(this, articleList, rvArticles, listener);
+        rvArticles.setAdapter(articleAdapter);
+    }
+
+    private void setOnClickListener()
+    {
+        listener = new ArticleAdapter.ArticleViewClickListener() {
+            @Override
+            public void onClick(View v, int pos) {
+                Intent intent = new Intent(getApplicationContext(), ArticleItem.class);
+                intent.putExtra("articleTitle", articleList.get(pos).getTitle());
+                startActivity(intent);
+            }
+        };
     }
 
     public void ClickMenu(View view)
@@ -54,10 +68,7 @@ public class Home extends AppCompatActivity
         openDrawer(drawerLayout);
     }
 
-    public static void openDrawer(DrawerLayout drawerLayout)
-    {
-        drawerLayout.openDrawer(GravityCompat.START);
-    }
+    public static void openDrawer(DrawerLayout drawerLayout) { drawerLayout.openDrawer(GravityCompat.START); }
 
     public void ClickBack(View view)
     {
@@ -99,30 +110,5 @@ public class Home extends AppCompatActivity
         Intent intent = new Intent(activity, actClass);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         activity.startActivity(intent);
-    }
-
-    public void addArticle(View view)
-    {
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu)
-    {
-        getMenuInflater().inflate(R.menu.home_bar_menu, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item)
-    {
-        switch(item.getItemId())
-        {
-            case R.id.icProfile: return true;
-            case R.id.setSettings: return true;
-            case R.id.setClose:
-                finish();
-                return true;
-            default: return super.onOptionsItemSelected(item);
-        }
     }
 }

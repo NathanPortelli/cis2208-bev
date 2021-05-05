@@ -6,12 +6,13 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteStatement;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 
 import androidx.annotation.Nullable;
 
-import java.io.FileInputStream;
-import java.io.IOException;
+import java.sql.Blob;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,6 +20,8 @@ public class DBHelper extends SQLiteOpenHelper
 {
     private static final String ARTICLES_TABLE = "articles";
     private static final String ARTICLES_COLUMN_TITLE = "title";
+    private static final String ARTICLES_COLUMN_IMAGE = "img";
+
     List<Articles> articleList = new ArrayList<>();
 
     public DBHelper(@Nullable Context context)
@@ -60,13 +63,18 @@ public class DBHelper extends SQLiteOpenHelper
     {
 
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery("select * from " + ARTICLES_TABLE, null);
+        Cursor cursor = db.rawQuery("select * from " + ARTICLES_TABLE + " order by " + ARTICLES_COLUMN_TITLE, null);
 
         while(cursor.moveToNext())
         {
             int index = cursor.getColumnIndex(ARTICLES_COLUMN_TITLE);
+            int imgindex = cursor.getColumnIndex(ARTICLES_COLUMN_IMAGE);
+
             String title = cursor.getString(index);
-            Articles article = new Articles(title);
+            byte[] image = cursor.getBlob(imgindex);
+            Bitmap bmImage = BitmapFactory.decodeByteArray(image, 0 ,image.length);
+
+            Articles article = new Articles(title, bmImage);
             articleList.add(article);
         }
         return articleList;

@@ -7,23 +7,26 @@
     android:layout_height="200dp"
     android:padding="25dp">
 
-    <ImageButton
+    <ImageView
         android:id="@+id/articleImg"
-        android:layout_width="350dp"
+        android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="15dp"
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/ic_profile" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/articleTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Title"
+        android:shadowColor="@color/black"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="1"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="20sp"

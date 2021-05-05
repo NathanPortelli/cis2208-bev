@@ -12,8 +12,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BEVProject">
-        <activity android:name=".Home"></activity>
-        <activity android:name=".SubmitArticle"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,6 +21,9 @@
         </activity>
         <activity android:name=".SignUp" />
         <activity android:name=".Login" />
+        <activity android:name=".Home" />
+        <activity android:name=".SubmitArticle" />
+        <activity android:name=".ArticleItem" />
     </application>
 
 </manifest>

@@ -83,7 +83,9 @@ public class SignUp extends AppCompatActivity
                 else if(!validateEmail(useremail))
                     Toast.makeText(SignUp.this, "Please enter a valid email.", Toast.LENGTH_SHORT).show();
                 else if(userpass.length()<8 && !validatePass(userpass))
-                    Toast.makeText(SignUp.this, "Please follow password guidelines.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SignUp.this, "Please follow the password guidelines.", Toast.LENGTH_SHORT).show();
+                else if(imageData == null)
+                    Toast.makeText(SignUp.this, "Please upload a profile image.", Toast.LENGTH_SHORT).show();
                 else
                 {
                     Boolean userCheck = db.checkEmail(useremail);
@@ -121,7 +123,6 @@ public class SignUp extends AppCompatActivity
         if(requestCode == PICK_IMAGE && resultCode == RESULT_OK)
         {
             imageUri = data.getData();
-
             try
             {
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), imageUri);

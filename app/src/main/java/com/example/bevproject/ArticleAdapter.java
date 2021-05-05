@@ -1,10 +1,13 @@
 package com.example.bevproject;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,24 +21,34 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
     Context context;
     List<Articles> articlesList;
     RecyclerView rvArticles;
+    //final View.OnClickListener onClickListener = new ArticleOnClickListener();
 
-    final View.OnClickListener onClickListener = new ArticleOnClickListener();
+    private ArticleViewClickListener listener;
 
-    public static class ViewHolder extends RecyclerView.ViewHolder
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener
     {
         TextView articleTitle;
+        ImageView articleImage;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             articleTitle = itemView.findViewById(R.id.articleTitle);
+            articleImage = itemView.findViewById(R.id.articleImg);
+            itemView.setOnClickListener(this);
+        }
+        @Override
+        public void onClick(View v)
+        {
+            listener.onClick(v, getBindingAdapterPosition());
         }
     }
 
-    public ArticleAdapter(Context context, List<Articles> articlesList, RecyclerView rvArticles)
+    public ArticleAdapter(Context context, List<Articles> articlesList, RecyclerView rvArticles, ArticleViewClickListener listener)
     {
         this.context = context;
         this.articlesList = articlesList;
         this.rvArticles = rvArticles;
+        this.listener = listener;
     }
 
     @NonNull
@@ -44,8 +57,8 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
     {
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.item_article, parent, false);
+        //view.setOnClickListener(onClickListener);
         ViewHolder viewHolder = new ViewHolder(view);
-
         return viewHolder;
     }
 
@@ -54,6 +67,7 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
     {
         Articles article = articlesList.get(position);
         holder.articleTitle.setText(article.getTitle());
+        holder.articleImage.setImageBitmap(article.getImage());
     }
 
     @Override
@@ -61,14 +75,9 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
         return articlesList.size();
     }
 
-    private class ArticleOnClickListener implements View.OnClickListener {
-        @Override
-        public void onClick(View v)
-        {
-            int itemPosition = rvArticles.getChildLayoutPosition(v);
-            String item = articlesList.get(itemPosition).getTitle();
-            Toast.makeText(context, item, Toast.LENGTH_SHORT).show();
-        }
+    public interface ArticleViewClickListener
+    {
+        public void onClick(View v, int pos);
     }
 }
 
