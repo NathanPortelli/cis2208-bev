@@ -72,7 +72,7 @@ public class SignUp extends AppCompatActivity
             public void onClick(View v)
             {
                 String username = name.getText().toString();
-                String useremail = email.getText().toString();
+                String useremail = email.getText().toString().toLowerCase();
                 String userpass = pass.getText().toString();
                 String userbio = bio.getText().toString();
 

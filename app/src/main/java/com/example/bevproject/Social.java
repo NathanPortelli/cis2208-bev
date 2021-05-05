@@ -8,40 +8,34 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toolbar;
-
-import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.LinkedBlockingQueue;
 
-public class Home extends AppCompatActivity
-{
-    DrawerLayout drawerLayout;
+public class Social extends AppCompatActivity {
 
     DBHelper db;
     RecyclerView rvArticles;
     ArticleAdapter articleAdapter;
     RecyclerView.LayoutManager layoutManager;
     List<Articles> articleList = new ArrayList<>();
-
+    DrawerLayout drawerLayout;
     private ArticleAdapter.ArticleViewClickListener listener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
-
-        drawerLayout = findViewById(R.id.homeLayout);
-
+        setContentView(R.layout.activity_social);
+        drawerLayout = findViewById(R.id.socialLayout);
         db = new DBHelper(this);
-        articleList = db.getAllArticles();
         rvArticles = findViewById(R.id.rvArticles);
+        articleList = db.getSocialArticles();
         rvArticles.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
 
@@ -63,12 +57,20 @@ public class Home extends AppCompatActivity
         };
     }
 
+    public static void redirectActivity(Activity activity, Class actClass)
+    {
+        Intent intent = new Intent(activity, actClass);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        activity.startActivity(intent);
+    }
+
     public void ClickMenu(View view)
     {
         openDrawer(drawerLayout);
     }
 
-    public static void openDrawer(DrawerLayout drawerLayout) { drawerLayout.openDrawer(GravityCompat.START); }
+    public static void openDrawer(DrawerLayout drawerLayout)
+    { drawerLayout.openDrawer(GravityCompat.START); }
 
     public void ClickBack(View view)
     {
@@ -78,35 +80,12 @@ public class Home extends AppCompatActivity
     public static void closeDrawer(DrawerLayout drawerLayout)
     {
         if(drawerLayout.isDrawerOpen(GravityCompat.START))
-        {
-            drawerLayout.closeDrawer(GravityCompat.START);
-        }
+        { drawerLayout.closeDrawer(GravityCompat.START); }
     }
 
-    public void ClickHome(View view)
-    {
-        recreate();
-    }
-
-    public void ClickProfile(View view)
-    {
-        //REDIRECT TO USER PROFILE
-        //redirectActivity(this, );
-    }
-
-    public void ClickPolitics(View view) {
-        //REDIRECT TO POLITICS CATEGORY
-        redirectActivity(this, Politics.class);
-    }
-
-    public void ClickSocial(View view) {
-        //REDIRECT TO SOCIAL CATEGORY
-        redirectActivity(this, Social.class);
-    }
-
-    public void ClickOpinion(View view) {
-        //REDIRECT TO OPINION CATEGORY
-        redirectActivity(this, Opinion.class);
+    public void ClickHome(View view) {
+        //REDIRECT TO HOME PAGE
+        redirectActivity(this, Home.class);
     }
 
     public void ClickArticleCreate(View view)
@@ -115,15 +94,38 @@ public class Home extends AppCompatActivity
         redirectActivity(this, SubmitArticle.class);
     }
 
-    public void ClickLogout(View view)
-    {
-        finish();
+    public void ClickLogout(View view) { finish(); }
+
+    public void ClickPolitics(View view) {
+        //REDIRECT TO POLITICS CATEGORY
+        redirectActivity(this, Politics.class);
     }
 
-    public static void redirectActivity(Activity activity, Class actClass)
+    public void ClickSocial(View view) { recreate(); }
+
+    public void ClickOpinion(View view){
+        //REDIRECT TO OPINION CATEGORY
+        redirectActivity(this, Opinion.class);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu)
     {
-        Intent intent = new Intent(activity, actClass);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        activity.startActivity(intent);
+        getMenuInflater().inflate(R.menu.home_bar_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        switch(item.getItemId())
+        {
+            case R.id.icProfile: return true;
+            case R.id.setSettings: return true;
+            case R.id.setClose:
+                finish();
+                return true;
+            default: return super.onOptionsItemSelected(item);
+        }
     }
 }

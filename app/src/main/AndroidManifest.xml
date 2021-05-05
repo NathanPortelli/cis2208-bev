@@ -7,11 +7,14 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/bev_logo_foreground"
         android:label="A Bird&apos;s Eye View"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/bev_logo_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BEVProject">
+        <activity android:name=".Opinion"></activity>
+        <activity android:name=".Social" />
+        <activity android:name=".Politics" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

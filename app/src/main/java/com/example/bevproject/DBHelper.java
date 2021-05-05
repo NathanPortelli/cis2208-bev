@@ -68,11 +68,71 @@ public class DBHelper extends SQLiteOpenHelper
         while(cursor.moveToNext())
         {
             int index = cursor.getColumnIndex(ARTICLES_COLUMN_TITLE);
-            int imgindex = cursor.getColumnIndex(ARTICLES_COLUMN_IMAGE);
+            int imgIndex = cursor.getColumnIndex(ARTICLES_COLUMN_IMAGE);
 
             String title = cursor.getString(index);
-            byte[] image = cursor.getBlob(imgindex);
+            byte[] image = cursor.getBlob(imgIndex);
             Bitmap bmImage = BitmapFactory.decodeByteArray(image, 0 ,image.length);
+
+            Articles article = new Articles(title, bmImage);
+            articleList.add(article);
+        }
+        return articleList;
+    }
+
+    public List<Articles> getPoliticsArticles()
+    {
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("select * from " + ARTICLES_TABLE + " where category=?", new String[] {"Politics"});
+
+        while(cursor.moveToNext())
+        {
+            int index = cursor.getColumnIndex(ARTICLES_COLUMN_TITLE);
+            int imgIndex = cursor.getColumnIndex(ARTICLES_COLUMN_IMAGE);
+            String title = cursor.getString(index);
+            byte[] image = cursor.getBlob(imgIndex);
+            Bitmap bmImage = BitmapFactory.decodeByteArray(image, 0, image.length);
+
+            Articles article = new Articles(title, bmImage);
+            articleList.add(article);
+        }
+        return articleList;
+    }
+
+    public List<Articles> getSocialArticles()
+    {
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("select * from " + ARTICLES_TABLE + " where category=?", new String[] {"Social"});
+
+        while(cursor.moveToNext())
+        {
+            int index = cursor.getColumnIndex(ARTICLES_COLUMN_TITLE);
+            int imgIndex = cursor.getColumnIndex(ARTICLES_COLUMN_IMAGE);
+            String title = cursor.getString(index);
+            byte[] image = cursor.getBlob(imgIndex);
+            Bitmap bmImage = BitmapFactory.decodeByteArray(image, 0, image.length);
+
+            Articles article = new Articles(title, bmImage);
+            articleList.add(article);
+        }
+        return articleList;
+    }
+
+    public List<Articles> getOpinionArticles()
+    {
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("select * from " + ARTICLES_TABLE + " where category=?", new String[] {"Opinion"});
+
+        while(cursor.moveToNext())
+        {
+            int index = cursor.getColumnIndex(ARTICLES_COLUMN_TITLE);
+            int imgIndex = cursor.getColumnIndex(ARTICLES_COLUMN_IMAGE);
+            String title = cursor.getString(index);
+            byte[] image = cursor.getBlob(imgIndex);
+            Bitmap bmImage = BitmapFactory.decodeByteArray(image, 0, image.length);
 
             Articles article = new Articles(title, bmImage);
             articleList.add(article);

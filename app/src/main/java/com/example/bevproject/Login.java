@@ -30,7 +30,7 @@ public class Login extends AppCompatActivity
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String user = useremail.getText().toString();
+                String user = useremail.getText().toString().toLowerCase();
                 String pass = userpass.getText().toString();
 
                 if(user.equals("") || pass.equals(""))

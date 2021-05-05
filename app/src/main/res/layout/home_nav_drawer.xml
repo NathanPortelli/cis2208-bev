@@ -33,7 +33,7 @@
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:onClick="ClickArticleCreate" />
+            android:onClick="ClickArticleCreate"/>
 
         <Button
             android:layout_width="match_parent"
@@ -59,7 +59,8 @@
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:layout_marginTop="25dp"/>
+            android:layout_marginTop="25dp"
+            android:onClick="ClickPolitics"/>
 
         <Button
             android:layout_width="match_parent"
@@ -68,7 +69,8 @@
             android:backgroundTint="#EDE070"
             android:textColor="@color/black"
             android:textSize="20sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:onClick="ClickSocial"/>
 
         <Button
             android:layout_width="match_parent"
@@ -77,7 +79,8 @@
             android:backgroundTint="#9CDDD7"
             android:textColor="@color/black"
             android:textSize="20sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:onClick="ClickOpinion"/>
 
         <Button
             android:layout_width="match_parent"
