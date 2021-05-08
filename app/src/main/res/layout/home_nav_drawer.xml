@@ -43,6 +43,15 @@
             android:textSize="20sp"
             android:textStyle="bold" />
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:text="Pinned Articles"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:onClick="ClickSavedArticles"/>
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

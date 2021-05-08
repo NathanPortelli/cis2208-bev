@@ -1,27 +1,21 @@
 package com.example.bevproject;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import org.w3c.dom.Text;
-
 import java.util.List;
 
-public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHolder>
+public class SavedAdapter extends RecyclerView.Adapter<SavedAdapter.ViewHolder>
 {
     Context context;
-    List<Articles> articlesList;
+    List<Pinned> pinnedList;
     RecyclerView rvArticles;
     //final View.OnClickListener onClickListener = new ArticleOnClickListener();
 
@@ -45,17 +39,17 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
         }
     }
 
-    public ArticleAdapter(Context context, List<Articles> articlesList, RecyclerView rvArticles, ArticleViewClickListener listener)
+    public SavedAdapter(Context context, List<Pinned> pinnedList, RecyclerView rvArticles, ArticleViewClickListener listener)
     {
         this.context = context;
-        this.articlesList = articlesList;
+        this.pinnedList = pinnedList;
         this.rvArticles = rvArticles;
         this.listener = listener;
     }
 
     @NonNull
     @Override
-    public ArticleAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
+    public SavedAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
     {
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.item_article, parent, false);
@@ -65,16 +59,15 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ArticleAdapter.ViewHolder holder, int position)
+    public void onBindViewHolder(@NonNull SavedAdapter.ViewHolder holder, int position)
     {
-        Articles article = articlesList.get(position);
-        holder.articleTitle.setText(article.getTitle());
-        holder.articleImage.setImageBitmap(article.getImage());
+        Pinned pinnedArticles = pinnedList.get(position);
+        holder.articleTitle.setText(pinnedArticles.getPinnedTitle());
     }
 
     @Override
     public int getItemCount() {
-        return articlesList.size();
+        return pinnedList.size();
     }
 
     public interface ArticleViewClickListener

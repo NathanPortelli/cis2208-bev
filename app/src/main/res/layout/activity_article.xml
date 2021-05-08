@@ -5,73 +5,91 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/homeLayout"
-    tools:context=".Home">
+    tools:context=".ArticleItem">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
+    <ScrollView
         android:layout_height="match_parent"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp">
+        android:layout_width="match_parent">
 
-        <include
-            android:id="@+id/include"
-            layout="@layout/main_toolbar" />
-
-        <TextView
-            android:id="@+id/itemTitle"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:text="Title"
-            android:textAlignment="center"
-            android:textSize="40sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp">
 
-        <ImageView
-            android:id="@+id/itemImage"
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/itemTitle" />
+            <include
+                android:id="@+id/include"
+                layout="@layout/back_toolbar" />
 
-        <Button
-            android:id="@+id/itemAuthor"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="Author"
-            android:textColor="@color/black"
-            app:layout_constraintEnd_toStartOf="@+id/itemLike"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/itemImage" />
+            <TextView
+                android:id="@+id/itemTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:text="Title"
+                android:textAlignment="center"
+                android:textSize="40sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/itemLike"
-            android:layout_width="150dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="24dp"
-            android:src="@drawable/ic_like"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/itemAuthor"
-            app:layout_constraintTop_toBottomOf="@+id/itemImage" /><!--TO ADD ONCLICK HERE-->
+            <ImageView
+                android:id="@+id/itemImage"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/itemTitle" />
 
-        <TextView
-            android:id="@+id/itemContent"
-            android:layout_width="match_parent"
-            android:layout_height="75dp"
-            android:text="Text"
-            android:textSize="25sp"
-            android:layout_marginTop="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/itemAuthor" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <Button
+                android:id="@+id/itemAuthor"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="Author"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toStartOf="@+id/itemLike"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/itemImage" />
 
+            <ImageButton
+                android:id="@+id/itemLike"
+                android:layout_width="75dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="24dp"
+                android:background="@null"
+                android:onClick="ButtonSave"
+                android:src="@drawable/ic_like"
+                app:layout_constraintEnd_toEndOf="@+id/itemCopy"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/itemAuthor"
+                app:layout_constraintTop_toBottomOf="@+id/itemImage" />
+
+            <ImageButton
+                android:id="@+id/itemCopy"
+                android:layout_width="75dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="24dp"
+                android:background="@null"
+                android:onClick="ButtonCopy"
+                android:src="@drawable/ic_copy"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/itemLike"
+                app:layout_constraintTop_toBottomOf="@+id/itemImage" />
+
+            <TextView
+                android:id="@+id/itemContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Text"
+                android:textSize="18sp"
+                android:layout_marginTop="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/itemAuthor" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
     <com.google.android.material.navigation.NavigationView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
@@ -81,4 +99,5 @@
             layout="@layout/home_nav_drawer"/>
 
     </com.google.android.material.navigation.NavigationView>
+
 </androidx.drawerlayout.widget.DrawerLayout>

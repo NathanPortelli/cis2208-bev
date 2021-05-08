@@ -55,4 +55,9 @@ public class Login extends AppCompatActivity
         Intent intent = new Intent(this, Home.class);
         Login.this.startActivity(intent);
     }
+
+    public void ClickToHome(View view)
+    {
+        finish();
+    }
 }

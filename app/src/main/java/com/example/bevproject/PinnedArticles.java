@@ -10,14 +10,20 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
+import android.widget.Toolbar;
+
+import com.google.android.material.navigation.NavigationView;
 
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.LinkedBlockingQueue;
 
-public class Home extends AppCompatActivity
+public class PinnedArticles extends AppCompatActivity
 {
     DrawerLayout drawerLayout;
 
@@ -37,7 +43,7 @@ public class Home extends AppCompatActivity
         drawerLayout = findViewById(R.id.homeLayout);
 
         db = new DBHelper(this);
-        articleList = db.getAllArticles();
+        articleList = db.getAllPinnedArticles();
         rvArticles = findViewById(R.id.rvArticles);
         rvArticles.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
@@ -89,7 +95,7 @@ public class Home extends AppCompatActivity
 
     public void ClickHome(View view)
     {
-        recreate();
+        redirectActivity(this, Home.class);
     }
 
     public void ClickProfile(View view)
@@ -99,8 +105,7 @@ public class Home extends AppCompatActivity
     }
 
     public void ClickSavedArticles(View view) {
-        //REDIRECT TO SAVED ARTICLES
-        redirectActivity(this, PinnedArticles.class);
+        recreate();
     }
 
     public void ClickPolitics(View view) {
@@ -134,21 +139,5 @@ public class Home extends AppCompatActivity
         Intent intent = new Intent(activity, actClass);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         activity.startActivity(intent);
-    }
-
-    public void ButtonSave(View view)
-    {
-        int pos = rvArticles.getChildLayoutPosition(view);
-        String pinTitle = articleList.get(pos).getTitle();
-
-        Boolean result = db.pinArticle(pinTitle);
-        if(result == true)
-        {
-            Toast.makeText(Home.this, "Article has been pinned!", Toast.LENGTH_SHORT).show();
-        }
-        else
-        {
-            Toast.makeText(Home.this, "Article has already been pinned.", Toast.LENGTH_SHORT).show();
-        }
     }
 }

@@ -5,10 +5,12 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.database.sqlite.SQLiteQueryBuilder;
 import android.database.sqlite.SQLiteStatement;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
@@ -21,6 +23,8 @@ public class DBHelper extends SQLiteOpenHelper
     private static final String ARTICLES_TABLE = "articles";
     private static final String ARTICLES_COLUMN_TITLE = "title";
     private static final String ARTICLES_COLUMN_IMAGE = "img";
+    private static final String ARTICLES_COLUMN_TEXT = "content";
+    private static final String ARTICLES_COLUMN_PIN = "pin";
 
     List<Articles> articleList = new ArrayList<>();
 
@@ -33,7 +37,7 @@ public class DBHelper extends SQLiteOpenHelper
     public void onCreate(SQLiteDatabase db)
     {
         db.execSQL("create Table users(email Text primary key, name Text, password Text, bio Text, img Blob)");
-        db.execSQL("create Table articles(title Text primary key, content Text, category Text, img Blob)");
+        db.execSQL("create Table articles(title Text primary key, content Text, category Text, img Blob, pin integer default 0)");
     }
 
     @Override
@@ -59,22 +63,68 @@ public class DBHelper extends SQLiteOpenHelper
             return true;
     }
 
+    public Boolean pinArticle(String title)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+
+        Cursor cursor = db.rawQuery("select * from " + ARTICLES_TABLE + " where " + ARTICLES_COLUMN_TITLE + " =? ",  new String[]{title});
+        int checkPin = 1;
+        while(cursor.moveToNext())
+        {
+            checkPin = cursor.getInt(cursor.getColumnIndex(ARTICLES_COLUMN_PIN));
+        }
+        if(checkPin == 1)
+            return false;
+
+        contentValues.put("pin", 1);
+        db.update(ARTICLES_TABLE, contentValues, "title = ?", new String[]{title});
+        return true;
+    }
+
+    public List<Articles> getAllPinnedArticles()
+    {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("select * from " + ARTICLES_TABLE + " where " + ARTICLES_COLUMN_PIN + " =1 order by " + ARTICLES_COLUMN_TITLE, null);
+
+        while(cursor.moveToNext())
+        {
+            int titleIndex = cursor.getColumnIndex(ARTICLES_COLUMN_TITLE);
+            int imgIndex = cursor.getColumnIndex(ARTICLES_COLUMN_IMAGE);
+            int textIndex = cursor.getColumnIndex(ARTICLES_COLUMN_TEXT);
+            int pinIndex = cursor.getColumnIndex(ARTICLES_COLUMN_PIN);
+
+            String title = cursor.getString(titleIndex);
+            byte[] image = cursor.getBlob(imgIndex);
+            Bitmap bmImage = BitmapFactory.decodeByteArray(image, 0 ,image.length);
+            String text = cursor.getString(textIndex);
+            int pin = cursor.getInt(pinIndex);
+
+            Articles article = new Articles(title, bmImage, text, pin);
+            articleList.add(article);
+        }
+        return articleList;
+    }
+
     public List<Articles> getAllArticles()
     {
-
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery("select * from " + ARTICLES_TABLE + " order by " + ARTICLES_COLUMN_TITLE, null);
 
         while(cursor.moveToNext())
         {
-            int index = cursor.getColumnIndex(ARTICLES_COLUMN_TITLE);
+            int titleIndex = cursor.getColumnIndex(ARTICLES_COLUMN_TITLE);
             int imgIndex = cursor.getColumnIndex(ARTICLES_COLUMN_IMAGE);
+            int textIndex = cursor.getColumnIndex(ARTICLES_COLUMN_TEXT);
+            int pinIndex = cursor.getColumnIndex(ARTICLES_COLUMN_PIN);
 
-            String title = cursor.getString(index);
+            String title = cursor.getString(titleIndex);
             byte[] image = cursor.getBlob(imgIndex);
             Bitmap bmImage = BitmapFactory.decodeByteArray(image, 0 ,image.length);
+            String text = cursor.getString(textIndex);
+            int pin = cursor.getInt(pinIndex);
 
-            Articles article = new Articles(title, bmImage);
+            Articles article = new Articles(title, bmImage, text, pin);
             articleList.add(article);
         }
         return articleList;
@@ -82,19 +132,23 @@ public class DBHelper extends SQLiteOpenHelper
 
     public List<Articles> getPoliticsArticles()
     {
-
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery("select * from " + ARTICLES_TABLE + " where category=?", new String[] {"Politics"});
 
         while(cursor.moveToNext())
         {
-            int index = cursor.getColumnIndex(ARTICLES_COLUMN_TITLE);
+            int titleIndex = cursor.getColumnIndex(ARTICLES_COLUMN_TITLE);
             int imgIndex = cursor.getColumnIndex(ARTICLES_COLUMN_IMAGE);
-            String title = cursor.getString(index);
-            byte[] image = cursor.getBlob(imgIndex);
-            Bitmap bmImage = BitmapFactory.decodeByteArray(image, 0, image.length);
+            int textIndex = cursor.getColumnIndex(ARTICLES_COLUMN_TEXT);
+            int pinIndex = cursor.getColumnIndex(ARTICLES_COLUMN_PIN);
 
-            Articles article = new Articles(title, bmImage);
+            String title = cursor.getString(titleIndex);
+            byte[] image = cursor.getBlob(imgIndex);
+            Bitmap bmImage = BitmapFactory.decodeByteArray(image, 0 ,image.length);
+            String text = cursor.getString(textIndex);
+            int pin = cursor.getInt(pinIndex);
+
+            Articles article = new Articles(title, bmImage, text, pin);
             articleList.add(article);
         }
         return articleList;
@@ -108,13 +162,18 @@ public class DBHelper extends SQLiteOpenHelper
 
         while(cursor.moveToNext())
         {
-            int index = cursor.getColumnIndex(ARTICLES_COLUMN_TITLE);
+            int titleIndex = cursor.getColumnIndex(ARTICLES_COLUMN_TITLE);
             int imgIndex = cursor.getColumnIndex(ARTICLES_COLUMN_IMAGE);
-            String title = cursor.getString(index);
-            byte[] image = cursor.getBlob(imgIndex);
-            Bitmap bmImage = BitmapFactory.decodeByteArray(image, 0, image.length);
+            int textIndex = cursor.getColumnIndex(ARTICLES_COLUMN_TEXT);
+            int pinIndex = cursor.getColumnIndex(ARTICLES_COLUMN_PIN);
 
-            Articles article = new Articles(title, bmImage);
+            String title = cursor.getString(titleIndex);
+            byte[] image = cursor.getBlob(imgIndex);
+            Bitmap bmImage = BitmapFactory.decodeByteArray(image, 0 ,image.length);
+            String text = cursor.getString(textIndex);
+            int pin = cursor.getInt(pinIndex);
+
+            Articles article = new Articles(title, bmImage, text, pin);
             articleList.add(article);
         }
         return articleList;
@@ -128,13 +187,18 @@ public class DBHelper extends SQLiteOpenHelper
 
         while(cursor.moveToNext())
         {
-            int index = cursor.getColumnIndex(ARTICLES_COLUMN_TITLE);
+            int titleIndex = cursor.getColumnIndex(ARTICLES_COLUMN_TITLE);
             int imgIndex = cursor.getColumnIndex(ARTICLES_COLUMN_IMAGE);
-            String title = cursor.getString(index);
-            byte[] image = cursor.getBlob(imgIndex);
-            Bitmap bmImage = BitmapFactory.decodeByteArray(image, 0, image.length);
+            int textIndex = cursor.getColumnIndex(ARTICLES_COLUMN_TEXT);
+            int pinIndex = cursor.getColumnIndex(ARTICLES_COLUMN_PIN);
 
-            Articles article = new Articles(title, bmImage);
+            String title = cursor.getString(titleIndex);
+            byte[] image = cursor.getBlob(imgIndex);
+            Bitmap bmImage = BitmapFactory.decodeByteArray(image, 0 ,image.length);
+            String text = cursor.getString(textIndex);
+            int pin = cursor.getInt(pinIndex);
+
+            Articles article = new Articles(title, bmImage, text, pin);
             articleList.add(article);
         }
         return articleList;

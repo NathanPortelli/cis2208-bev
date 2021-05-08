@@ -1,15 +1,11 @@
 package com.example.bevproject;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -57,41 +53,29 @@ public class Politics extends AppCompatActivity {
         };
     }
 
-    public static void redirectActivity(Activity activity, Class actClass)
-    {
-        Intent intent = new Intent(activity, actClass);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        activity.startActivity(intent);
-    }
-
     public void ClickMenu(View view)
     {
-        openDrawer(drawerLayout);
+        Home.openDrawer(drawerLayout);
     }
-
-    public static void openDrawer(DrawerLayout drawerLayout)
-    { drawerLayout.openDrawer(GravityCompat.START); }
-
     public void ClickBack(View view)
     {
-        closeDrawer(drawerLayout);
-    }
-
-    public static void closeDrawer(DrawerLayout drawerLayout)
-    {
-        if(drawerLayout.isDrawerOpen(GravityCompat.START))
-        { drawerLayout.closeDrawer(GravityCompat.START); }
+        Home.closeDrawer(drawerLayout);
     }
 
     public void ClickHome(View view) {
         //REDIRECT TO HOME PAGE
-        redirectActivity(this, Home.class);
+        Home.redirectActivity(this, Home.class);
     }
 
     public void ClickArticleCreate(View view)
     {
         //REDIRECT TO SUBMIT AN ARTICLE
-        redirectActivity(this, SubmitArticle.class);
+        Home.redirectActivity(this, SubmitArticle.class);
+    }
+
+    public void ClickSavedArticles(View view) {
+        //REDIRECT TO SAVED ARTICLES
+        Home.redirectActivity(this, PinnedArticles.class);
     }
 
     public void ClickLogout(View view)
@@ -103,12 +87,12 @@ public class Politics extends AppCompatActivity {
 
     public void ClickSocial(View view) {
         //REDIRECT TO SOCIAL CATEGORY
-        redirectActivity(this, Social.class);
+        Home.redirectActivity(this, Social.class);
     }
 
     public void ClickOpinion(View view) {
         //REDIRECT TO OPINION CATEGORY
-        redirectActivity(this, Opinion.class);
+        Home.redirectActivity(this, Opinion.class);
     }
 
     @Override

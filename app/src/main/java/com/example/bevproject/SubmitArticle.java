@@ -3,20 +3,16 @@ package com.example.bevproject;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
-import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.database.Cursor;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.AdapterView;
@@ -30,8 +26,6 @@ import android.widget.Toast;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class SubmitArticle extends AppCompatActivity implements AdapterView.OnItemSelectedListener
 {
@@ -44,9 +38,6 @@ public class SubmitArticle extends AppCompatActivity implements AdapterView.OnIt
     private static final int PICK_IMAGE = 1;
     Uri imageUri;
     byte[] imageData;
-    //Validation
-    Pattern patt;
-    Matcher match;
 
     Spinner spinner;
     String categoryChoice;
@@ -162,6 +153,13 @@ public class SubmitArticle extends AppCompatActivity implements AdapterView.OnIt
     {
         recreate();
     }
+
+    public void ClickSavedArticles(View view)
+    {
+        //REDIRECT TO SUBMIT AN ARTICLE
+        Home.redirectActivity(this, PinnedArticles.class);
+    }
+
     public void ClickLogout(View view)
     {
         finish();
@@ -178,8 +176,9 @@ public class SubmitArticle extends AppCompatActivity implements AdapterView.OnIt
             try
             {
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), imageUri);
-                imgUpload.setImageBitmap(bitmap);
-                imageData = getByteArray(bitmap);
+                Bitmap resize = Bitmap.createScaledBitmap(bitmap, (int)(bitmap.getWidth()*0.5), (int)(bitmap.getHeight()*0.5), true);
+                imgUpload.setImageBitmap(resize);
+                imageData = getByteArray(resize);
             }
             catch(IOException e)
             {
@@ -195,7 +194,8 @@ public class SubmitArticle extends AppCompatActivity implements AdapterView.OnIt
         return outputStream.toByteArray();
     }
 
-    private boolean hasImage(@NonNull ImageView view) {
+    private boolean hasImage(@NonNull ImageView view)
+    {
         Drawable drawable = view.getDrawable();
         boolean hasImage = (drawable != null);
         if (hasImage && (drawable instanceof BitmapDrawable))
