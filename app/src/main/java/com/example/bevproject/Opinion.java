@@ -11,6 +11,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -51,6 +53,17 @@ public class Opinion extends AppCompatActivity {
                 startActivity(intent);
             }
         };
+
+        FloatingActionButton fab = findViewById(R.id.floating_action_button);
+        fab.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                finish();
+                startActivity(new Intent(getApplicationContext(), SubmitArticle.class));
+            }
+        });
     }
 
     public void ClickMenu(View view)

@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 
 import java.io.ByteArrayOutputStream;
@@ -52,6 +53,17 @@ public class PinnedArticles extends AppCompatActivity
         rvArticles.setLayoutManager(layoutManager);
         articleAdapter = new ArticleAdapter(this, articleList, rvArticles, listener);
         rvArticles.setAdapter(articleAdapter);
+
+
+        FloatingActionButton fab = findViewById(R.id.floating_action_button);
+        fab.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                startActivity(new Intent(getApplicationContext(), SubmitArticle.class));
+            }
+        });
     }
 
     private void setOnClickListener()
@@ -95,6 +107,7 @@ public class PinnedArticles extends AppCompatActivity
 
     public void ClickHome(View view)
     {
+        finish();
         redirectActivity(this, Home.class);
     }
 
@@ -110,28 +123,27 @@ public class PinnedArticles extends AppCompatActivity
 
     public void ClickPolitics(View view) {
         //REDIRECT TO POLITICS CATEGORY
+        finish();
         redirectActivity(this, Politics.class);
     }
 
     public void ClickSocial(View view) {
         //REDIRECT TO SOCIAL CATEGORY
+        finish();
         redirectActivity(this, Social.class);
     }
 
     public void ClickOpinion(View view) {
         //REDIRECT TO OPINION CATEGORY
+        finish();
         redirectActivity(this, Opinion.class);
     }
 
     public void ClickArticleCreate(View view)
     {
         //REDIRECT TO SUBMIT AN ARTICLE
-        redirectActivity(this, SubmitArticle.class);
-    }
-
-    public void ClickLogout(View view)
-    {
         finish();
+        redirectActivity(this, SubmitArticle.class);
     }
 
     public static void redirectActivity(Activity activity, Class actClass)

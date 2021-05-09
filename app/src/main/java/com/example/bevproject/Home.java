@@ -13,6 +13,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.List;
@@ -46,6 +48,16 @@ public class Home extends AppCompatActivity
         rvArticles.setLayoutManager(layoutManager);
         articleAdapter = new ArticleAdapter(this, articleList, rvArticles, listener);
         rvArticles.setAdapter(articleAdapter);
+
+        FloatingActionButton fab = findViewById(R.id.floating_action_button);
+        fab.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                startActivity(new Intent(getApplicationContext(), SubmitArticle.class));
+            }
+        });
     }
 
     private void setOnClickListener()
@@ -56,7 +68,7 @@ public class Home extends AppCompatActivity
             {
                 Bitmap bmp = articleList.get(pos).getImage();
                 ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                bmp.compress(Bitmap.CompressFormat.PNG, 30, baos);
+                bmp.compress(Bitmap.CompressFormat.PNG, 0, baos);
 
                 Intent intent = new Intent(getApplicationContext(), ArticleItem.class);
                 intent.putExtra("articleTitle", articleList.get(pos).getTitle());
