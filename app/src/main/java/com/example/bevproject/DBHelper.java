@@ -24,6 +24,7 @@ public class DBHelper extends SQLiteOpenHelper
     private static final String ARTICLES_COLUMN_TITLE = "title";
     private static final String ARTICLES_COLUMN_IMAGE = "img";
     private static final String ARTICLES_COLUMN_TEXT = "content";
+    private static final String ARTICLES_COLUMN_CATEG = "category";
     private static final String ARTICLES_COLUMN_PIN = "pin";
 
     List<Articles> articleList = new ArrayList<>();
@@ -92,15 +93,17 @@ public class DBHelper extends SQLiteOpenHelper
             int titleIndex = cursor.getColumnIndex(ARTICLES_COLUMN_TITLE);
             int imgIndex = cursor.getColumnIndex(ARTICLES_COLUMN_IMAGE);
             int textIndex = cursor.getColumnIndex(ARTICLES_COLUMN_TEXT);
+            int categIndex = cursor.getColumnIndex(ARTICLES_COLUMN_CATEG);
             int pinIndex = cursor.getColumnIndex(ARTICLES_COLUMN_PIN);
 
             String title = cursor.getString(titleIndex);
+            String categ = cursor.getString(categIndex);
             byte[] image = cursor.getBlob(imgIndex);
             Bitmap bmImage = BitmapFactory.decodeByteArray(image, 0 ,image.length);
             String text = cursor.getString(textIndex);
             int pin = cursor.getInt(pinIndex);
 
-            Articles article = new Articles(title, bmImage, text, pin);
+            Articles article = new Articles(title, categ, bmImage, text, pin);
             articleList.add(article);
         }
         return articleList;
@@ -116,15 +119,17 @@ public class DBHelper extends SQLiteOpenHelper
             int titleIndex = cursor.getColumnIndex(ARTICLES_COLUMN_TITLE);
             int imgIndex = cursor.getColumnIndex(ARTICLES_COLUMN_IMAGE);
             int textIndex = cursor.getColumnIndex(ARTICLES_COLUMN_TEXT);
+            int categIndex = cursor.getColumnIndex(ARTICLES_COLUMN_CATEG);
             int pinIndex = cursor.getColumnIndex(ARTICLES_COLUMN_PIN);
 
             String title = cursor.getString(titleIndex);
+            String categ = cursor.getString(categIndex);
             byte[] image = cursor.getBlob(imgIndex);
             Bitmap bmImage = BitmapFactory.decodeByteArray(image, 0 ,image.length);
             String text = cursor.getString(textIndex);
             int pin = cursor.getInt(pinIndex);
 
-            Articles article = new Articles(title, bmImage, text, pin);
+            Articles article = new Articles(title, categ, bmImage, text, pin);
             articleList.add(article);
         }
         return articleList;
@@ -140,15 +145,17 @@ public class DBHelper extends SQLiteOpenHelper
             int titleIndex = cursor.getColumnIndex(ARTICLES_COLUMN_TITLE);
             int imgIndex = cursor.getColumnIndex(ARTICLES_COLUMN_IMAGE);
             int textIndex = cursor.getColumnIndex(ARTICLES_COLUMN_TEXT);
+            int categIndex = cursor.getColumnIndex(ARTICLES_COLUMN_CATEG);
             int pinIndex = cursor.getColumnIndex(ARTICLES_COLUMN_PIN);
 
             String title = cursor.getString(titleIndex);
+            String categ = cursor.getString(categIndex);
             byte[] image = cursor.getBlob(imgIndex);
             Bitmap bmImage = BitmapFactory.decodeByteArray(image, 0 ,image.length);
             String text = cursor.getString(textIndex);
             int pin = cursor.getInt(pinIndex);
 
-            Articles article = new Articles(title, bmImage, text, pin);
+            Articles article = new Articles(title, categ, bmImage, text, pin);
             articleList.add(article);
         }
         return articleList;
@@ -165,15 +172,17 @@ public class DBHelper extends SQLiteOpenHelper
             int titleIndex = cursor.getColumnIndex(ARTICLES_COLUMN_TITLE);
             int imgIndex = cursor.getColumnIndex(ARTICLES_COLUMN_IMAGE);
             int textIndex = cursor.getColumnIndex(ARTICLES_COLUMN_TEXT);
+            int categIndex = cursor.getColumnIndex(ARTICLES_COLUMN_CATEG);
             int pinIndex = cursor.getColumnIndex(ARTICLES_COLUMN_PIN);
 
             String title = cursor.getString(titleIndex);
+            String categ = cursor.getString(categIndex);
             byte[] image = cursor.getBlob(imgIndex);
             Bitmap bmImage = BitmapFactory.decodeByteArray(image, 0 ,image.length);
             String text = cursor.getString(textIndex);
             int pin = cursor.getInt(pinIndex);
 
-            Articles article = new Articles(title, bmImage, text, pin);
+            Articles article = new Articles(title, categ, bmImage, text, pin);
             articleList.add(article);
         }
         return articleList;
@@ -190,15 +199,17 @@ public class DBHelper extends SQLiteOpenHelper
             int titleIndex = cursor.getColumnIndex(ARTICLES_COLUMN_TITLE);
             int imgIndex = cursor.getColumnIndex(ARTICLES_COLUMN_IMAGE);
             int textIndex = cursor.getColumnIndex(ARTICLES_COLUMN_TEXT);
+            int categIndex = cursor.getColumnIndex(ARTICLES_COLUMN_CATEG);
             int pinIndex = cursor.getColumnIndex(ARTICLES_COLUMN_PIN);
 
             String title = cursor.getString(titleIndex);
+            String categ = cursor.getString(categIndex);
             byte[] image = cursor.getBlob(imgIndex);
             Bitmap bmImage = BitmapFactory.decodeByteArray(image, 0 ,image.length);
             String text = cursor.getString(textIndex);
             int pin = cursor.getInt(pinIndex);
 
-            Articles article = new Articles(title, bmImage, text, pin);
+            Articles article = new Articles(title, categ, bmImage, text, pin);
             articleList.add(article);
         }
         return articleList;

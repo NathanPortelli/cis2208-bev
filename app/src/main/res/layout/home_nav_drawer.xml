@@ -18,7 +18,8 @@
 
         <Button
             android:layout_width="match_parent"
-            android:layout_height="70dp"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
             android:text="Articles"
             android:textColor="@color/black"
             android:textSize="20sp"
@@ -28,7 +29,8 @@
 
         <Button
             android:layout_width="match_parent"
-            android:layout_height="70dp"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
             android:text="Submit Article"
             android:textColor="@color/black"
             android:textSize="20sp"
@@ -37,7 +39,8 @@
 
         <Button
             android:layout_width="match_parent"
-            android:layout_height="70dp"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
             android:text="Following"
             android:textColor="@color/black"
             android:textSize="20sp"
@@ -45,7 +48,8 @@
 
         <Button
             android:layout_width="match_parent"
-            android:layout_height="70dp"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
             android:text="Pinned Articles"
             android:textColor="@color/black"
             android:textSize="20sp"
@@ -55,6 +59,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:padding="10dp"
             android:text="Categories"
             android:textSize="25sp"
             android:textAlignment="center"
@@ -62,7 +67,8 @@
 
         <Button
             android:layout_width="match_parent"
-            android:layout_height="70dp"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
             android:text="Politics"
             android:backgroundTint="#BD88FD"
             android:textColor="@color/black"
@@ -73,7 +79,8 @@
 
         <Button
             android:layout_width="match_parent"
-            android:layout_height="70dp"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
             android:text="Social"
             android:backgroundTint="#EDE070"
             android:textColor="@color/black"
@@ -83,22 +90,13 @@
 
         <Button
             android:layout_width="match_parent"
-            android:layout_height="70dp"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
             android:text="Opinion"
             android:backgroundTint="#9CDDD7"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold"
             android:onClick="ClickOpinion"/>
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:text="Log Out"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:onClick="ClickLogout"
-            android:layout_marginTop="25dp"/>
     </LinearLayout>
 </ScrollView>

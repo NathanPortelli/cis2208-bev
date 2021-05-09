@@ -64,34 +64,34 @@ public class Politics extends AppCompatActivity {
 
     public void ClickHome(View view) {
         //REDIRECT TO HOME PAGE
+        finish();
         Home.redirectActivity(this, Home.class);
     }
 
     public void ClickArticleCreate(View view)
     {
         //REDIRECT TO SUBMIT AN ARTICLE
+        finish();
         Home.redirectActivity(this, SubmitArticle.class);
     }
 
     public void ClickSavedArticles(View view) {
         //REDIRECT TO SAVED ARTICLES
-        Home.redirectActivity(this, PinnedArticles.class);
-    }
-
-    public void ClickLogout(View view)
-    {
         finish();
+        Home.redirectActivity(this, PinnedArticles.class);
     }
 
     public void ClickPolitics(View view) { recreate(); }
 
     public void ClickSocial(View view) {
         //REDIRECT TO SOCIAL CATEGORY
+        finish();
         Home.redirectActivity(this, Social.class);
     }
 
     public void ClickOpinion(View view) {
         //REDIRECT TO OPINION CATEGORY
+        finish();
         Home.redirectActivity(this, Opinion.class);
     }
 

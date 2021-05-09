@@ -68,26 +68,25 @@ public class Opinion extends AppCompatActivity {
     public void ClickArticleCreate(View view)
     {
         //REDIRECT TO SUBMIT AN ARTICLE
+        finish();
         Home.redirectActivity(this, SubmitArticle.class);
     }
 
     public void ClickSavedArticles(View view) {
         //REDIRECT TO SAVED ARTICLES
-        Home.redirectActivity(this, PinnedArticles.class);
-    }
-
-    public void ClickLogout(View view)
-    {
         finish();
+        Home.redirectActivity(this, PinnedArticles.class);
     }
 
     public void ClickPolitics(View view) {
         //REDIRECT TO POLITICS CATEGORY
+        finish();
         Home.redirectActivity(this, Politics.class);
     }
 
     public void ClickSocial(View view) {
         //REDIRECT TO SOCIAL CATEGORY
+        finish();
         Home.redirectActivity(this, Social.class);
     }
 

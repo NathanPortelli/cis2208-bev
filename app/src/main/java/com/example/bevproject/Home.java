@@ -60,6 +60,7 @@ public class Home extends AppCompatActivity
 
                 Intent intent = new Intent(getApplicationContext(), ArticleItem.class);
                 intent.putExtra("articleTitle", articleList.get(pos).getTitle());
+                intent.putExtra("articleCateg", articleList.get(pos).getCateg());
                 intent.putExtra("articleText", articleList.get(pos).getContent());
                 intent.putExtra("articleImage", baos.toByteArray());
                 startActivity(intent);
@@ -100,33 +101,33 @@ public class Home extends AppCompatActivity
 
     public void ClickSavedArticles(View view) {
         //REDIRECT TO SAVED ARTICLES
+        closeDrawer(drawerLayout);
         redirectActivity(this, PinnedArticles.class);
     }
 
     public void ClickPolitics(View view) {
         //REDIRECT TO POLITICS CATEGORY
+        closeDrawer(drawerLayout);
         redirectActivity(this, Politics.class);
     }
 
     public void ClickSocial(View view) {
         //REDIRECT TO SOCIAL CATEGORY
+        closeDrawer(drawerLayout);
         redirectActivity(this, Social.class);
     }
 
     public void ClickOpinion(View view) {
         //REDIRECT TO OPINION CATEGORY
+        closeDrawer(drawerLayout);
         redirectActivity(this, Opinion.class);
     }
 
     public void ClickArticleCreate(View view)
     {
         //REDIRECT TO SUBMIT AN ARTICLE
+        closeDrawer(drawerLayout);
         redirectActivity(this, SubmitArticle.class);
-    }
-
-    public void ClickLogout(View view)
-    {
-        finish();
     }
 
     public static void redirectActivity(Activity activity, Class actClass)

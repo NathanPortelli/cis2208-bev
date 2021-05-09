@@ -142,12 +142,8 @@ public class SubmitArticle extends AppCompatActivity implements AdapterView.OnIt
     }
     public void ClickHome(View view)
     {
+        finish();
         Home.redirectActivity(this, Home.class);
-    }
-    public void ClickProfile(View view)
-    {
-        //REDIRECT TO USER PROFILE
-        //redirectActivity(this, );
     }
     public void ClickArticleCreate(View view)
     {
@@ -157,12 +153,26 @@ public class SubmitArticle extends AppCompatActivity implements AdapterView.OnIt
     public void ClickSavedArticles(View view)
     {
         //REDIRECT TO SUBMIT AN ARTICLE
+        finish();
         Home.redirectActivity(this, PinnedArticles.class);
     }
 
-    public void ClickLogout(View view)
-    {
+    public void ClickPolitics(View view) {
+        //REDIRECT TO POLITICS CATEGORY
         finish();
+        Home.redirectActivity(this, Politics.class);
+    }
+
+    public void ClickSocial(View view) {
+        //REDIRECT TO SOCIAL CATEGORY
+        finish();
+        Home.redirectActivity(this, Social.class);
+    }
+
+    public void ClickOpinion(View view){
+        //REDIRECT TO OPINION CATEGORY
+        finish();
+        Home.redirectActivity(this, Opinion.class);
     }
 
     @Override
@@ -176,7 +186,7 @@ public class SubmitArticle extends AppCompatActivity implements AdapterView.OnIt
             try
             {
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), imageUri);
-                Bitmap resize = Bitmap.createScaledBitmap(bitmap, (int)(bitmap.getWidth()*0.5), (int)(bitmap.getHeight()*0.5), true);
+                Bitmap resize = Bitmap.createScaledBitmap(bitmap, (int)(bitmap.getWidth()*0.3), (int)(bitmap.getHeight()*0.3), true);
                 imgUpload.setImageBitmap(resize);
                 imageData = getByteArray(resize);
             }

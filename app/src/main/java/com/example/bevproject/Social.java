@@ -65,25 +65,27 @@ public class Social extends AppCompatActivity {
 
     public void ClickHome(View view) {
         //REDIRECT TO HOME PAGE
+        finish();
         Home.redirectActivity(this, Home.class);
     }
 
     public void ClickArticleCreate(View view)
     {
         //REDIRECT TO SUBMIT AN ARTICLE
+        finish();
         Home.redirectActivity(this, SubmitArticle.class);
     }
 
     public void ClickSavedArticles(View view)
     {
         //REDIRECT TO SUBMIT AN ARTICLE
+        finish();
         Home.redirectActivity(this, PinnedArticles.class);
     }
 
-    public void ClickLogout(View view) { finish(); }
-
     public void ClickPolitics(View view) {
         //REDIRECT TO POLITICS CATEGORY
+        finish();
         Home.redirectActivity(this, Politics.class);
     }
 
@@ -91,6 +93,7 @@ public class Social extends AppCompatActivity {
 
     public void ClickOpinion(View view){
         //REDIRECT TO OPINION CATEGORY
+        finish();
         Home.redirectActivity(this, Opinion.class);
     }
 

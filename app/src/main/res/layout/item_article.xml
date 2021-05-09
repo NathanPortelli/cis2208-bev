@@ -4,36 +4,32 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="200dp"
+    android:layout_height="wrap_content"
     android:padding="25dp">
 
     <ImageView
         android:id="@+id/articleImg"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:layout_marginTop="15dp"
         android:scaleType="centerCrop"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/articleTitle"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@android:color/darker_gray"
+        android:padding="10dp"
         android:text="Title"
-        android:shadowColor="@color/black"
-        android:shadowDx="2"
-        android:shadowDy="2"
-        android:shadowRadius="2"
-        android:textAlignment="center"
-        android:textColor="@color/white"
+        android:textAlignment="textStart"
+        android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/articleImg"
-        app:layout_constraintStart_toStartOf="@+id/articleImg"
-        app:layout_constraintTop_toTopOf="@+id/articleImg" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/articleImg" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

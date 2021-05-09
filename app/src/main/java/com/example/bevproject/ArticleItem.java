@@ -30,25 +30,25 @@ public class ArticleItem extends AppCompatActivity
         db = new DBHelper(this);
 
         TextView title = findViewById(R.id.itemTitle);
+        TextView category = findViewById(R.id.itemCateg);
         ImageView image = findViewById(R.id.itemImage);
         TextView text = findViewById(R.id.itemContent);
 
         String articleTitle = "Title was not submitted.";
+        String articleCateg = "Category was not submitted.";
         String articleText = "Text was not submitted.";
-        String articleImage = "Image";
 
         Bundle extras = getIntent().getExtras();
         if(extras != null)
         {
             articleTitle = extras.getString("articleTitle");
             articleText = extras.getString("articleText");
-            //articleImage = extras.getString("articleImage");
+            articleCateg = extras.getString("articleCateg");
         }
-        //image.setImageResource(getIntent().getIntExtra("articleImage", 0));
-        //Bitmap bitmap = getIntent().getParcelableExtra("articleImage");
         Bitmap bitmap = BitmapFactory.decodeByteArray(getIntent().getByteArrayExtra("articleImage"), 0, getIntent().getByteArrayExtra("articleImage").length);
         image.setImageBitmap(bitmap);
 
+        category.setText(articleCateg);
         title.setText(articleTitle);
         text.setText(articleText);
     }

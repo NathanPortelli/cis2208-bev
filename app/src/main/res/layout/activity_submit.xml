@@ -16,7 +16,7 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="60dp">
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -41,29 +41,42 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="30sp"
+                    android:paddingBottom="10dp"
                     android:text="Title"
                     android:textSize="30sp"
                     app:layout_constraintTop_toBottomOf="@+id/articleTitle"
                     tools:layout_editor_absoluteX="16dp" />
 
-                <EditText
-                    android:id="@+id/edArticleTitle"
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/edArticleTitleField"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:hint="Title of Article"
-                    android:inputType="text"
-                    app:layout_constraintTop_toBottomOf="@+id/txArticleTitle" />
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txArticleTitle"
+                    android:hint="Title of Article">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edArticleTitle"
+                        android:scrollbars="vertical"
+                        android:inputType="text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </com.google.android.material.textfield.TextInputLayout>
 
                 <TextView
                     android:id="@+id/txArticleCategory"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
+                    android:paddingBottom="10dp"
                     android:text="Category"
                     android:textSize="30sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/edArticleTitle" />
+                    app:layout_constraintTop_toBottomOf="@+id/edArticleTitleField" />
 
                 <Spinner
                     android:id="@+id/spArticleCategory"
@@ -81,30 +94,38 @@
                     android:layout_marginTop="10dp"
                     android:text="Article Text"
                     android:textSize="30sp"
+                    android:paddingBottom="10dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/spArticleCategory" />
 
-                <EditText
-                    android:id="@+id/edArticleText"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/edArticleTextField"
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
-                    android:gravity="bottom|start"
-                    android:hint="Write the article here."
-                    android:inputType="textMultiLine"
-                    android:scrollbars="vertical"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txArticleText" />
+                    app:layout_constraintTop_toBottomOf="@+id/txArticleText"
+                    android:hint="Write the article here">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edArticleText"
+                        android:scrollbars="vertical"
+                        android:inputType="textMultiLine"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
 
                 <TextView
                     android:id="@+id/articleImage"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="30sp"
+                    android:paddingBottom="10dp"
                     android:text="Thumbnail"
                     android:textSize="30sp"
-                    app:layout_constraintTop_toBottomOf="@+id/edArticleText"
+                    app:layout_constraintTop_toBottomOf="@+id/edArticleTextField"
                     tools:layout_editor_absoluteX="16dp" />
 
                 <ImageButton
