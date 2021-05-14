@@ -23,6 +23,7 @@ import java.util.regex.Pattern;
 
 public class SignUp extends AppCompatActivity
 {
+    int id;
     ImageButton imgUpload;
     EditText name, email, pass, bio;
     Button btnSignUpNext;
@@ -51,7 +52,6 @@ public class SignUp extends AppCompatActivity
 
         btnSignUpNext = (Button) findViewById(R.id.btnSignUpRegister);
 
-        Intent intent = getIntent();
         imgUpload = (ImageButton) findViewById(R.id.imgUpload);
 
         imgUpload.setOnClickListener(new View.OnClickListener()
@@ -70,28 +70,30 @@ public class SignUp extends AppCompatActivity
         {
             public void onClick(View v)
             {
-                String username = name.getText().toString();
-                String useremail = email.getText().toString().toLowerCase();
-                String userpass = pass.getText().toString();
-                String userbio = bio.getText().toString();
+                Users user = new Users();
+                user.setName(name.getText().toString());
+                user.setEmail(email.getText().toString().toLowerCase());
+                user.setPassword(pass.getText().toString());
+                user.setBio(bio.getText().toString());
+                user.setImg(imageData);
 
-                if(username.equals("") || useremail.equals("") || userpass.equals("") || userbio.equals(""))
+                if(name.getText().toString().equals("") || email.getText().toString().equals("") || pass.getText().toString().equals("") || bio.getText().toString().equals(""))
                     Toast.makeText(SignUp.this, "Please fill in all the information.", Toast.LENGTH_SHORT).show();
-                else if(!validateName(username))
+                else if(!validateName(name.getText().toString()))
                     Toast.makeText(SignUp.this, "Please enter a valid name (No numbers).", Toast.LENGTH_SHORT).show();
-                else if(!validateEmail(useremail))
+                else if(!validateEmail(email.getText().toString()))
                     Toast.makeText(SignUp.this, "Please enter a valid email.", Toast.LENGTH_SHORT).show();
-                else if(userpass.length()<8 && !validatePass(userpass))
+                else if(pass.getText().toString().length()<8 && !validatePass(pass.getText().toString()))
                     Toast.makeText(SignUp.this, "Please follow the password guidelines.", Toast.LENGTH_SHORT).show();
                 else if(imageData == null)
                     Toast.makeText(SignUp.this, "Please upload a profile image.", Toast.LENGTH_SHORT).show();
                 else
                 {
-                    Boolean userCheck = db.checkEmail(useremail);
-                    if(userCheck == false)
+                    Users userCheck = db.checkEmail(email.getText().toString().toLowerCase());
+                    if(userCheck == null)
                     {
-                        Boolean result = db.insertUser(useremail, username, userpass, userbio, imageData);
-                        if(result == true)
+                        Boolean result = db.insertUser(user);
+                        if(result != null)
                         {
                             openHomePage();
                             Toast.makeText(SignUp.this, "Successfully Registered!", Toast.LENGTH_SHORT).show();

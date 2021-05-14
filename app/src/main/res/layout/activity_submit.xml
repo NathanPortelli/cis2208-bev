@@ -33,7 +33,7 @@
                 <TextView
                     android:id="@+id/articleTitle"
                     android:layout_width="match_parent"
-                    android:layout_height="75dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="30sp"
                     android:text="Submit an Article"
                     android:textAlignment="center"
@@ -76,7 +76,7 @@
                     android:id="@+id/txArticleCategory"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="30dp"
                     android:paddingBottom="10dp"
                     android:text="Category"
                     android:textSize="30sp"
@@ -97,10 +97,10 @@
                     android:id="@+id/txArticleText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="30dp"
+                    android:paddingBottom="10dp"
                     android:text="Article Text"
                     android:textSize="30sp"
-                    android:paddingBottom="10dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/spArticleCategory" />
@@ -176,7 +176,10 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 
     <com.google.android.material.navigation.NavigationView
         android:layout_width="wrap_content"

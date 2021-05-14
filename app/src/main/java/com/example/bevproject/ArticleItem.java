@@ -65,7 +65,7 @@ public class ArticleItem extends AppCompatActivity
         }
         else
         {
-            Toast.makeText(ArticleItem.this, "Article has already been pinned.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(ArticleItem.this, "Article has been unpinned.", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -84,6 +84,10 @@ public class ArticleItem extends AppCompatActivity
     public void ClickToHome(View view)
     {
         finish();
+    }
+
+    public void ClickProfile(View view) {
+        Home.redirectActivity(this, Profile.class);
     }
 
 

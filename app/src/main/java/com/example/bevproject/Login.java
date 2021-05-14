@@ -37,8 +37,8 @@ public class Login extends AppCompatActivity
                     Toast.makeText(Login.this, "Please fill in all the information.", Toast.LENGTH_SHORT).show();
                 else
                 {
-                    Boolean result = db.checkLogin(user, pass);
-                    if(result == true)
+                    Users result = db.checkLogin(user, pass);
+                    if(result != null)
                     {
                         openHomePage();
                         Toast.makeText(Login.this, "Login Successful!", Toast.LENGTH_SHORT).show();

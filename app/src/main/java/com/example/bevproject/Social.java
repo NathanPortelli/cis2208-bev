@@ -1,11 +1,13 @@
 package com.example.bevproject;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -13,6 +15,10 @@ import android.view.View;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+<<<<<<< Updated upstream
+=======
+import java.io.ByteArrayOutputStream;
+>>>>>>> Stashed changes
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,9 +53,17 @@ public class Social extends AppCompatActivity {
     {
         listener = new ArticleAdapter.ArticleViewClickListener() {
             @Override
-            public void onClick(View v, int pos) {
+            public void onClick(View v, int pos)
+            {
+                Bitmap bmp = articleList.get(pos).getImage();
+                ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                bmp.compress(Bitmap.CompressFormat.PNG, 30, baos);
+
                 Intent intent = new Intent(getApplicationContext(), ArticleItem.class);
                 intent.putExtra("articleTitle", articleList.get(pos).getTitle());
+                intent.putExtra("articleCateg", articleList.get(pos).getCateg());
+                intent.putExtra("articleText", articleList.get(pos).getContent());
+                intent.putExtra("articleImage", baos.toByteArray());
                 startActivity(intent);
             }
         };
@@ -64,6 +78,17 @@ public class Social extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), SubmitArticle.class));
             }
         });
+<<<<<<< Updated upstream
+=======
+    }
+
+    public static void closeDrawer(DrawerLayout drawerLayout)
+    {
+        if(drawerLayout.isDrawerOpen(GravityCompat.START))
+        {
+            drawerLayout.closeDrawer(GravityCompat.START);
+        }
+>>>>>>> Stashed changes
     }
 
     public void ClickMenu(View view)
@@ -75,6 +100,11 @@ public class Social extends AppCompatActivity {
         Home.closeDrawer(drawerLayout);
     }
 
+    public void ClickProfile(View view)
+    {
+        //REDIRECT TO USER PROFILE
+        Home.redirectActivity(this, Profile.class);
+    }
 
     public void ClickHome(View view) {
         //REDIRECT TO HOME PAGE

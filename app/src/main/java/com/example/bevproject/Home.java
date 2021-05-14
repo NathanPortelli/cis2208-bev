@@ -108,7 +108,7 @@ public class Home extends AppCompatActivity
     public void ClickProfile(View view)
     {
         //REDIRECT TO USER PROFILE
-        //redirectActivity(this, );
+        redirectActivity(this, Profile.class);
     }
 
     public void ClickSavedArticles(View view) {

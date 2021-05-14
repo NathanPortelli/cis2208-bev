@@ -3,6 +3,7 @@ package com.example.bevproject;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.Manifest;
@@ -117,6 +118,14 @@ public class SubmitArticle extends AppCompatActivity implements AdapterView.OnIt
         });
     }
 
+    public static void closeDrawer(DrawerLayout drawerLayout)
+    {
+        if(drawerLayout.isDrawerOpen(GravityCompat.START))
+        {
+            drawerLayout.closeDrawer(GravityCompat.START);
+        }
+    }
+
     public void openHomePage() {
         Intent intent = new Intent(this, Home.class);
         SubmitArticle.this.startActivity(intent);
@@ -142,9 +151,16 @@ public class SubmitArticle extends AppCompatActivity implements AdapterView.OnIt
     }
     public void ClickHome(View view)
     {
-        finish();
+        closeDrawer(drawerLayout);
         Home.redirectActivity(this, Home.class);
     }
+
+    public void ClickProfile(View view)
+    {
+        //REDIRECT TO USER PROFILE
+        Home.redirectActivity(this, Profile.class);
+    }
+
     public void ClickArticleCreate(View view)
     {
         recreate();
@@ -153,25 +169,25 @@ public class SubmitArticle extends AppCompatActivity implements AdapterView.OnIt
     public void ClickSavedArticles(View view)
     {
         //REDIRECT TO SUBMIT AN ARTICLE
-        finish();
+        closeDrawer(drawerLayout);
         Home.redirectActivity(this, PinnedArticles.class);
     }
 
     public void ClickPolitics(View view) {
         //REDIRECT TO POLITICS CATEGORY
-        finish();
+        closeDrawer(drawerLayout);
         Home.redirectActivity(this, Politics.class);
     }
 
     public void ClickSocial(View view) {
         //REDIRECT TO SOCIAL CATEGORY
-        finish();
+        closeDrawer(drawerLayout);
         Home.redirectActivity(this, Social.class);
     }
 
     public void ClickOpinion(View view){
         //REDIRECT TO OPINION CATEGORY
-        finish();
+        closeDrawer(drawerLayout);
         Home.redirectActivity(this, Opinion.class);
     }
 

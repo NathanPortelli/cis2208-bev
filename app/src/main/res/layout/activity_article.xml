@@ -62,19 +62,19 @@
                 android:layout_marginTop="24dp"
                 android:text="Author"
                 android:textColor="@color/black"
-                app:layout_constraintEnd_toStartOf="@+id/itemLike"
+                app:layout_constraintEnd_toStartOf="@+id/itemPin"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/itemTitle" />
 
             <ImageButton
-                android:id="@+id/itemLike"
+                android:id="@+id/itemPin"
                 android:layout_width="75dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="24dp"
                 android:background="@null"
                 android:onClick="ButtonSave"
-                android:src="@drawable/ic_like"
+                android:src="@drawable/ic_pin"
                 app:layout_constraintEnd_toEndOf="@+id/itemCopy"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/itemAuthor"
@@ -89,7 +89,7 @@
                 android:onClick="ButtonCopy"
                 android:src="@drawable/ic_copy"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/itemLike"
+                app:layout_constraintStart_toEndOf="@+id/itemPin"
                 app:layout_constraintTop_toBottomOf="@+id/itemTitle" />
 
             <TextView

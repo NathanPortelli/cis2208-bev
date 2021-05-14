@@ -32,7 +32,12 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_gravity="bottom|right"
             android:layout_margin="16dp"
+<<<<<<< Updated upstream
             app:backgroundTint="@color/teal_700"
+=======
+            app:backgroundTint="@color/white"
+            app:tint="@color/black"
+>>>>>>> Stashed changes
             android:src="@drawable/ic_add"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 

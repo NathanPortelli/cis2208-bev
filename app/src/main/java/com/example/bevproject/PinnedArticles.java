@@ -54,16 +54,34 @@ public class PinnedArticles extends AppCompatActivity
         articleAdapter = new ArticleAdapter(this, articleList, rvArticles, listener);
         rvArticles.setAdapter(articleAdapter);
 
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
         FloatingActionButton fab = findViewById(R.id.floating_action_button);
         fab.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
+<<<<<<< Updated upstream
                 startActivity(new Intent(getApplicationContext(), SubmitArticle.class));
             }
         });
+=======
+                finish();
+                startActivity(new Intent(getApplicationContext(), SubmitArticle.class));
+            }
+        });
+    }
+
+    @Override
+    public void onRestart()
+    {
+        super.onRestart();
+        finish();
+        startActivity(getIntent());
+>>>>>>> Stashed changes
     }
 
     private void setOnClickListener()
@@ -114,7 +132,7 @@ public class PinnedArticles extends AppCompatActivity
     public void ClickProfile(View view)
     {
         //REDIRECT TO USER PROFILE
-        //redirectActivity(this, );
+        redirectActivity(this, Profile.class);
     }
 
     public void ClickSavedArticles(View view) {

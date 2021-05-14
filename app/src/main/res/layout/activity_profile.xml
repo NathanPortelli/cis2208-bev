@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/profileLayout"
+    tools:context=".Profile">
+
+    <include
+        android:id="@+id/include"
+        layout="@layout/main_toolbar" />
+
+    <TextView
+        android:id="@+id/profileTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40sp"
+        android:text="My Account"
+        android:textAlignment="center"
+        android:textSize="40sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/itemProfileImage"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="30dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profileTitle" />
+
+    <TextView
+        android:id="@+id/itemProfileName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Name"
+        android:textAlignment="center"
+        android:textSize="35sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/itemProfileImage" />
+
+    <Button
+        android:id="@+id/btnMyArticles"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginHorizontal="60dp"
+        android:layout_marginTop="30dp"
+        android:text="My Articles"
+        android:onClick="ViewMyArticles"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        app:layout_constraintTop_toBottomOf="@+id/itemProfileName"
+        tools:layout_editor_absoluteX="60dp" />
+
+    <Button
+        android:id="@+id/btnSettings"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginHorizontal="60dp"
+        android:layout_marginTop="5dp"
+        android:text="Change Details"
+        android:onClick="ChangeDetails"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        app:layout_constraintTop_toBottomOf="@+id/btnMyArticles"
+        tools:layout_editor_absoluteX="60dp" />
+
+    <Button
+        android:id="@+id/btnLogOut"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginHorizontal="60dp"
+        android:layout_marginTop="5dp"
+        android:text="Log Out"
+        android:onClick="ClickLogout"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        app:layout_constraintTop_toBottomOf="@+id/btnSettings"
+        tools:layout_editor_absoluteX="60dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

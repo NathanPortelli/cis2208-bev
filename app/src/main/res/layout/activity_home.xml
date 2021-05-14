@@ -28,12 +28,22 @@
             android:id="@+id/floating_action_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+<<<<<<< Updated upstream
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_gravity="bottom|right"
             android:layout_margin="16dp"
             app:backgroundTint="@color/teal_200"
             android:src="@drawable/ic_add"/>
+=======
+            android:layout_gravity="bottom|right"
+            android:layout_margin="16dp"
+            android:src="@drawable/ic_add"
+            app:backgroundTint="@color/white"
+            app:tint="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+>>>>>>> Stashed changes
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.navigation.NavigationView
