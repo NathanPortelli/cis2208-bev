@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Profile extends AppCompatActivity
 {
@@ -29,9 +30,11 @@ public class Profile extends AppCompatActivity
         TextView name = findViewById(R.id.itemProfileName);
         ImageView image = findViewById(R.id.itemProfileImage);
 
-        /*DBHelper db = new DBHelper(getApplicationContext());
-        Users currentUser = db.findUser(user.getId());
-        name.setText(currentUser.getName());*/
+        DBHelper db = new DBHelper(getApplicationContext());
+
+        Toast.makeText(Profile.this, user.getId(), Toast.LENGTH_SHORT).show();
+        //Users currentUser = db.findUser(user.getId());
+        //name.setText(currentUser.getName());
     }
 
     public static void redirectActivity(Activity activity, Class actClass)

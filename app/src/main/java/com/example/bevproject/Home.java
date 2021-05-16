@@ -1,8 +1,10 @@
 package com.example.bevproject;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -10,9 +12,11 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.io.ByteArrayOutputStream;
@@ -49,6 +53,10 @@ public class Home extends AppCompatActivity
         articleAdapter = new ArticleAdapter(this, articleList, rvArticles, listener);
         rvArticles.setAdapter(articleAdapter);
 
+        //For Bottom Navigator
+        BottomNavigationView btnNav = findViewById(R.id.bottomnavview);
+        btnNav.setOnNavigationItemSelectedListener(bottomNavListener);
+
         FloatingActionButton fab = findViewById(R.id.floating_action_button);
         fab.setOnClickListener(new View.OnClickListener()
         {
@@ -80,6 +88,34 @@ public class Home extends AppCompatActivity
         };
     }
 
+    private BottomNavigationView.OnNavigationItemSelectedListener bottomNavListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            Fragment selectFragment = null;
+
+            switch(item.getItemId())
+            {
+                case R.id.homeItem:
+                    selectFragment = new HomeFragment();
+                    break;
+                case R.id.politicsItem:
+                    selectFragment = new PoliticsFragment();
+                    break;
+                case R.id.socialItem:
+                    selectFragment = new SocialFragment();
+                    break;
+                case R.id.opinionItem:
+                    selectFragment = new OpinionFragment();
+                    break;
+                case R.id.pinItem:
+                    selectFragment = new PinnedFragment();
+                    break;
+            }
+            getSupportFragmentManager().beginTransaction().replace(R.id.mainFrame, selectFragment).commit();
+            return true;
+        }
+    };
+
     public void ClickMenu(View view)
     {
         openDrawer(drawerLayout);
@@ -109,30 +145,6 @@ public class Home extends AppCompatActivity
     {
         //REDIRECT TO USER PROFILE
         redirectActivity(this, Profile.class);
-    }
-
-    public void ClickSavedArticles(View view) {
-        //REDIRECT TO SAVED ARTICLES
-        closeDrawer(drawerLayout);
-        redirectActivity(this, PinnedArticles.class);
-    }
-
-    public void ClickPolitics(View view) {
-        //REDIRECT TO POLITICS CATEGORY
-        closeDrawer(drawerLayout);
-        redirectActivity(this, Politics.class);
-    }
-
-    public void ClickSocial(View view) {
-        //REDIRECT TO SOCIAL CATEGORY
-        closeDrawer(drawerLayout);
-        redirectActivity(this, Social.class);
-    }
-
-    public void ClickOpinion(View view) {
-        //REDIRECT TO OPINION CATEGORY
-        closeDrawer(drawerLayout);
-        redirectActivity(this, Opinion.class);
     }
 
     public void ClickArticleCreate(View view)

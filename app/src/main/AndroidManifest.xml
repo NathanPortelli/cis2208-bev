@@ -26,10 +26,5 @@
         <activity android:name=".Home" />
         <activity android:name=".SubmitArticle" />
         <activity android:name=".ArticleItem" />
-        <activity android:name=".Opinion" />
-        <activity android:name=".Social" />
-        <activity android:name=".Politics" />
-        <activity android:name=".PinnedArticles" />
     </application>
-
 </manifest>

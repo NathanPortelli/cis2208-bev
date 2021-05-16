@@ -7,6 +7,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.widget.Toast;
+
 import androidx.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
@@ -252,6 +254,22 @@ public class DBHelper extends SQLiteOpenHelper
 
     public Users findUser(int id)
     {
+        /*
+        Users user = null;
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.rawQuery("select * from " + USERS_TABLE + " where " + USERS_TABLE_ID + " = ?", new String[] { String.valueOf(id) });
+        while(cursor.moveToFirst()) {
+            user = new Users();
+            user.setId((cursor.getInt(0)));
+            user.setEmail(cursor.getString(1));
+            user.setName(cursor.getString(2));
+            user.setPassword(cursor.getString(3));
+            user.setBio(cursor.getString(4));
+            user.setImg(cursor.getBlob(5));
+        }
+        return user;
+         */
+
         Users user = null;
         try {
             SQLiteDatabase db = getReadableDatabase();

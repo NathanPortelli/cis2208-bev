@@ -166,31 +166,6 @@ public class SubmitArticle extends AppCompatActivity implements AdapterView.OnIt
         recreate();
     }
 
-    public void ClickSavedArticles(View view)
-    {
-        //REDIRECT TO SUBMIT AN ARTICLE
-        closeDrawer(drawerLayout);
-        Home.redirectActivity(this, PinnedArticles.class);
-    }
-
-    public void ClickPolitics(View view) {
-        //REDIRECT TO POLITICS CATEGORY
-        closeDrawer(drawerLayout);
-        Home.redirectActivity(this, Politics.class);
-    }
-
-    public void ClickSocial(View view) {
-        //REDIRECT TO SOCIAL CATEGORY
-        closeDrawer(drawerLayout);
-        Home.redirectActivity(this, Social.class);
-    }
-
-    public void ClickOpinion(View view){
-        //REDIRECT TO OPINION CATEGORY
-        closeDrawer(drawerLayout);
-        Home.redirectActivity(this, Opinion.class);
-    }
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data)
     {

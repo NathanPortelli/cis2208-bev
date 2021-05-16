@@ -53,22 +53,12 @@ public class PinnedArticles extends AppCompatActivity
         rvArticles.setLayoutManager(layoutManager);
         articleAdapter = new ArticleAdapter(this, articleList, rvArticles, listener);
         rvArticles.setAdapter(articleAdapter);
-
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
         FloatingActionButton fab = findViewById(R.id.floating_action_button);
         fab.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
-<<<<<<< Updated upstream
-                startActivity(new Intent(getApplicationContext(), SubmitArticle.class));
-            }
-        });
-=======
                 finish();
                 startActivity(new Intent(getApplicationContext(), SubmitArticle.class));
             }
@@ -81,7 +71,6 @@ public class PinnedArticles extends AppCompatActivity
         super.onRestart();
         finish();
         startActivity(getIntent());
->>>>>>> Stashed changes
     }
 
     private void setOnClickListener()
@@ -137,24 +126,6 @@ public class PinnedArticles extends AppCompatActivity
 
     public void ClickSavedArticles(View view) {
         recreate();
-    }
-
-    public void ClickPolitics(View view) {
-        //REDIRECT TO POLITICS CATEGORY
-        finish();
-        redirectActivity(this, Politics.class);
-    }
-
-    public void ClickSocial(View view) {
-        //REDIRECT TO SOCIAL CATEGORY
-        finish();
-        redirectActivity(this, Social.class);
-    }
-
-    public void ClickOpinion(View view) {
-        //REDIRECT TO OPINION CATEGORY
-        finish();
-        redirectActivity(this, Opinion.class);
     }
 
     public void ClickArticleCreate(View view)

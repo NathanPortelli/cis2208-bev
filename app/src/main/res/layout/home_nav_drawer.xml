@@ -45,58 +45,5 @@
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold" />
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="Pinned Articles"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:onClick="ClickSavedArticles"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="Categories"
-            android:textSize="25sp"
-            android:textAlignment="center"
-            android:layout_marginTop="25dp"/>
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="Politics"
-            android:backgroundTint="#BD88FD"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_marginTop="25dp"
-            android:onClick="ClickPolitics"/>
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="Social"
-            android:backgroundTint="#EDE070"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:onClick="ClickSocial"/>
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="Opinion"
-            android:backgroundTint="#9CDDD7"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:onClick="ClickOpinion"/>
     </LinearLayout>
 </ScrollView>

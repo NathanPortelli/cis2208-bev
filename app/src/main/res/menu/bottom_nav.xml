@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/homeItem"
+        android:title="Home"
+        android:icon="@drawable/ic_home"/>
+
+    <item
+        android:id="@+id/politicsItem"
+        android:title="Politics"
+        android:icon="@drawable/ic_politics"/>
+
+    <item
+        android:id="@+id/socialItem"
+        android:title="Social"
+        android:icon="@drawable/ic_social"/>
+
+    <item
+        android:id="@+id/opinionItem"
+        android:title="Opinion"
+        android:icon="@drawable/ic_opinion"/>
+
+    <item
+        android:id="@+id/pinItem"
+        android:title="Pinned"
+        android:icon="@drawable/ic_pin"/>
+</menu>

@@ -31,21 +31,21 @@ public class UserDetails extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_details);
 
-        //fetchUserDetails();
-
         name = findViewById(R.id.edName);
         email = findViewById(R.id.edEmail);
         pass = findViewById(R.id.edPassword);
         bio = findViewById(R.id.edBio);
+
+        fetchUserDetails();
     }
 
-/*    private void fetchUserDetails()
+    private void fetchUserDetails()
     {
         name.setText(user.getName());
         email.setText(user.getEmail());
         pass.setText(user.getPassword());
         bio.setText((user.getBio()));
-    }*/
+    }
 
     public static void redirectActivity(Activity activity, Class actClass)
     {

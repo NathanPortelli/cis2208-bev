@@ -14,36 +14,43 @@
             android:id="@+id/include"
             layout="@layout/main_toolbar" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvArticles"
+        <FrameLayout
+            android:id="@+id/mainFrame"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="60dp">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvArticles"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </FrameLayout>
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottomnavview"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@color/black"
+            app:itemIconTint="@color/tab_icon"
+            app:itemTextColor="@color/tab_icon"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:menu="@menu/bottom_nav" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/floating_action_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-<<<<<<< Updated upstream
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             android:layout_gravity="bottom|right"
-            android:layout_margin="16dp"
-            app:backgroundTint="@color/teal_200"
-            android:src="@drawable/ic_add"/>
-=======
-            android:layout_gravity="bottom|right"
-            android:layout_margin="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="76dp"
             android:src="@drawable/ic_add"
             app:backgroundTint="@color/white"
             app:tint="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
->>>>>>> Stashed changes
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.navigation.NavigationView

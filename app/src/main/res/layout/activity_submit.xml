@@ -176,11 +176,6 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
-
     <com.google.android.material.navigation.NavigationView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
