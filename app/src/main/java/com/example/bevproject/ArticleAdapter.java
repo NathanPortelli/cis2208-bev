@@ -1,21 +1,13 @@
 package com.example.bevproject;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
-import org.w3c.dom.Text;
-
 import java.util.List;
 
 public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHolder>
@@ -23,14 +15,14 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
     Context context;
     List<Articles> articlesList;
     RecyclerView rvArticles;
-    //final View.OnClickListener onClickListener = new ArticleOnClickListener();
 
     private ArticleViewClickListener listener;
 
+    //View for RecylcerView used for article lsit
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener
     {
-        TextView articleTitle;
-        ImageView articleImage;
+        TextView articleTitle; //Article Title
+        ImageView articleImage; //Article Image
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -38,6 +30,7 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
             articleImage = itemView.findViewById(R.id.articleImg);
             itemView.setOnClickListener(this);
         }
+        //Access to article content after clicking on recyclerview
         @Override
         public void onClick(View v)
         {
@@ -45,6 +38,7 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
         }
     }
 
+    //Constructor
     public ArticleAdapter(Context context, List<Articles> articlesList, RecyclerView rvArticles, ArticleViewClickListener listener)
     {
         this.context = context;
@@ -53,17 +47,18 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
         this.listener = listener;
     }
 
+    //Retrieval of instance to create a new viewholder
     @NonNull
     @Override
     public ArticleAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
     {
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.item_article, parent, false);
-        //view.setOnClickListener(onClickListener);
         ViewHolder viewHolder = new ViewHolder(view);
         return viewHolder;
     }
 
+    //Updates contents with the items of the given position
     @Override
     public void onBindViewHolder(@NonNull ArticleAdapter.ViewHolder holder, int position)
     {
@@ -72,11 +67,13 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
         holder.articleImage.setImageBitmap(article.getImage());
     }
 
+    //Gets total amount of articles
     @Override
     public int getItemCount() {
         return articlesList.size();
     }
 
+    //Available action
     public interface ArticleViewClickListener
     {
         public void onClick(View v, int pos);

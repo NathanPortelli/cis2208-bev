@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-
+<!--Sign Up Form used to create an account-->
+<!--Used in order to scroll up and down the form-->
 <ScrollView
     android:layout_height="match_parent"
     android:layout_width="match_parent"
@@ -10,37 +11,41 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp">
 
+        <!--Calling toolbar to return to Main Activity-->
         <include
             android:id="@+id/include"
             layout="@layout/back_toolbar" />
 
+        <!--Title of Form-->
         <TextView
             android:id="@+id/txTitle"
             android:layout_width="match_parent"
             android:layout_height="75dp"
             android:layout_marginTop="30sp"
-            android:text="Sign Up"
+            android:text="@string/sign_up"
             android:textAlignment="center"
             android:textSize="50sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <!--Header of 'Sign Up Name'-->
         <TextView
             android:id="@+id/txName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30sp"
             android:paddingBottom="10dp"
-            android:text="Name"
+            android:text="@string/name"
             android:textSize="30sp"
             app:layout_constraintTop_toBottomOf="@+id/txTitle"
             tools:layout_editor_absoluteX="16dp" />
 
+        <!--Input of 'Sign Up Name'-->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/edNameField"
             android:layout_width="match_parent"
@@ -48,30 +53,31 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txName"
-            android:hint="Name and Surname">
+            android:hint="@string/name_hint">
 
+            <!--Actual Input of 'Sign Up Name'-->
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edName"
                 android:scrollbars="vertical"
                 android:inputType="text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
-
         </com.google.android.material.textfield.TextInputLayout>
 
+        <!--Header of 'Email Address'-->
         <TextView
             android:id="@+id/txEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:paddingBottom="10dp"
-            android:text="Email"
+            android:text="@string/email"
             android:textSize="30sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/edNameField" />
 
-
+        <!--Input of 'Email Address'-->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/edEmailField"
             android:layout_width="match_parent"
@@ -79,8 +85,9 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txEmail"
-            android:hint="example@domain.com">
+            android:hint="@string/email_hint">
 
+            <!--Actual Input of 'Email Address'-->
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edEmail"
                 android:scrollbars="vertical"
@@ -90,18 +97,20 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
+        <!--Header of 'Password'-->
         <TextView
             android:id="@+id/txPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:paddingBottom="10dp"
-            android:text="Password"
+            android:text="@string/password"
             android:textSize="30sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/edEmailField" />
 
+        <!--Input of 'Password'-->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/edPasswordField"
             android:layout_width="match_parent"
@@ -109,38 +118,41 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txPassword"
-            android:hint="Enter a strong password">
+            android:hint="@string/pass_sign_up_hint">
 
+            <!--Actual Input of 'Password'-->
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edPassword"
                 android:scrollbars="vertical"
                 android:inputType="textPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
-
         </com.google.android.material.textfield.TextInputLayout>
 
+        <!--Text for more information of what password would be accepted-->
         <TextView
             android:id="@+id/txPassGuide"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Must contain a minimum of 8 characters, including letters and numbers."
+            android:text="@string/pass_must_contain"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/edPasswordField" />
 
+        <!--Header of 'Bio'-->
         <TextView
             android:id="@+id/txBio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:paddingBottom="10dp"
-            android:text="Bio"
+            android:text="@string/bio"
             android:textSize="30sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txPassGuide" />
 
+        <!--Input of 'Bio'-->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/edBioField"
             android:layout_width="match_parent"
@@ -148,23 +160,24 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txBio"
-            android:hint="Tell us something about yourself!">
+            android:hint="@string/bio_hint">
 
+            <!--Actual Input of 'Bio'-->
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edBio"
                 android:scrollbars="vertical"
                 android:inputType="textMultiLine"
                 android:layout_width="match_parent"
                 android:layout_height="200dp" />
-
         </com.google.android.material.textfield.TextInputLayout>
 
+        <!--Header of 'Profile Image'-->
         <TextView
             android:id="@+id/txImage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30sp"
-            android:text="Profile Image"
+            android:text="@string/profile_image"
             android:shadowColor="@color/black"
             android:shadowDx="1"
             android:shadowDy="1"
@@ -173,6 +186,7 @@
             app:layout_constraintTop_toBottomOf="@+id/edBioField"
             tools:layout_editor_absoluteX="16dp" />
 
+        <!--Button to select an image for profile image-->
         <ImageButton
             android:id="@+id/imgUpload"
             android:layout_width="200dp"
@@ -180,12 +194,14 @@
             android:scaleType="centerCrop"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txImage" />
+            app:layout_constraintTop_toBottomOf="@+id/txImage"
+            android:contentDescription="@string/upload_image" />
 
+        <!--Text on button to select an image for thumbnail-->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Upload Image"
+            android:text="@string/upload_image"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:shadowColor="@color/black"
@@ -198,6 +214,7 @@
             app:layout_constraintStart_toStartOf="@+id/imgUpload"
             app:layout_constraintTop_toBottomOf="@+id/txImage" />
 
+        <!--Submission Button-->
         <Button
             android:id="@+id/btnSignUpRegister"
             android:layout_width="match_parent"
@@ -205,7 +222,7 @@
             android:layout_marginHorizontal="60dp"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
-            android:text="Sign Up"
+            android:text="@string/sign_up"
             android:textColor="@color/black"
             android:textSize="25sp"
             app:layout_constraintTop_toBottomOf="@+id/imgUpload"

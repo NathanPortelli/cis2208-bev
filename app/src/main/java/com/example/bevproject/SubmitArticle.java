@@ -4,7 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -22,6 +21,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.ByteArrayOutputStream;
@@ -30,6 +30,7 @@ import java.io.IOException;
 public class SubmitArticle extends AppCompatActivity implements AdapterView.OnItemSelectedListener
 {
     ImageButton imgUpload;
+    TextView headertitle, headertext, headerimage;
     EditText title, text;
     Button btnSubmit;
     //Database reference
@@ -38,11 +39,13 @@ public class SubmitArticle extends AppCompatActivity implements AdapterView.OnIt
     private static final int PICK_IMAGE = 1;
     Uri imageUri;
     byte[] imageData;
-
+    //Category choice
     Spinner spinner;
     String categoryChoice;
+    //Sidebar menu
     DrawerLayout drawerLayout;
 
+    //On creation of activity
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -50,31 +53,38 @@ public class SubmitArticle extends AppCompatActivity implements AdapterView.OnIt
         setContentView(R.layout.activity_submit);
 
         drawerLayout = findViewById(R.id.homeLayout);
-        spinner = (Spinner) findViewById(R.id.spArticleCategory);
-
+        spinner = findViewById(R.id.spArticleCategory); //For use by list of all categories
+        //Initialisation of adapted for categories spinner
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.categories, android.R.layout.simple_spinner_item);
+        //Dropdown for full list of all available items
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
-        spinner.setOnItemSelectedListener(this);
+        spinner.setOnItemSelectedListener(this);//Set selected item
 
+        //Request permission for access to external storage files needed for upload of image
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE}, PackageManager.PERMISSION_GRANTED);
 
-        title = (EditText) findViewById(R.id.edArticleTitle);
-        text = (EditText) findViewById(R.id.edArticleText);
+        //Titles on top of input
+        headertitle = findViewById(R.id.txArticleTitle);
+        headertext = findViewById(R.id.txArticleText);
+        headerimage = findViewById(R.id.articleImage);
+
+        //Actual input of details
+        title = findViewById(R.id.edArticleTitle);
+        text = findViewById(R.id.edArticleText);
         db = new DBHelper(this);
 
-        btnSubmit = (Button) findViewById(R.id.btnSignUpRegister);
+        btnSubmit = findViewById(R.id.btnSignUpRegister);
 
-        Intent intent = getIntent();
-        imgUpload = (ImageButton) findViewById(R.id.articleImgUpload);
-
+        //Input for upload of article image
+        imgUpload = findViewById(R.id.articleImgUpload);
         imgUpload.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
                 Intent gallery = new Intent();
-                gallery.setType("image/*");
+                gallery.setType("image/*"); //sets gallery information to images only
                 gallery.setAction(Intent.ACTION_GET_CONTENT);
                 startActivityForResult(Intent.createChooser(gallery, "Select Article Thumbnail"), PICK_IMAGE);
             }
@@ -84,32 +94,53 @@ public class SubmitArticle extends AppCompatActivity implements AdapterView.OnIt
         {
             public void onClick(View v)
             {
+                //Setting user details to as inputted by user
                 String articletitle = title.getText().toString();
                 String articletext = text.getText().toString();
-                ImageView articleImage = imgUpload;
-                //String articleCategory = spinner.toString();
-                
-                if(articletitle.equals("") || articletext.equals(""))
-                    Toast.makeText(SubmitArticle.this, "Please fill in all the information.", Toast.LENGTH_SHORT).show();
-                else if(imageData == null)
+                //Resetting colors of text
+                headertitle.setTextColor(0xFFFFFFFF);
+                headertext.setTextColor(0xFFFFFFFF);
+                headerimage.setTextColor(0xFFFFFFFF);
+
+                if(articletitle.equals("")) //If no title input was set
+                {
+                    //Change text colors to red as 'invalid'
+                    headertitle.setTextColor(0xFFAE0700);
+                    Toast.makeText(SubmitArticle.this, "Please enter a title.", Toast.LENGTH_SHORT).show();
+                }
+                else if(articletext.equals("")) //If no article text input was set
+                {
+                    //Change text colors to red as 'invalid'
+                    headertext.setTextColor(0xFFAE0700);
+                    Toast.makeText(SubmitArticle.this, "Please enter your article text.", Toast.LENGTH_SHORT).show();
+                }
+                else if(imageData == null) //If no image was set
+                {
+                    //Change text colors to red as 'invalid'
+                    headerimage.setTextColor(0xFFAE0700);
                     Toast.makeText(SubmitArticle.this, "Please upload an image.", Toast.LENGTH_SHORT).show();
+                }
                 else
                 {
-                    Boolean titleCheck = db.checkTitle(articletitle);
-                    if(titleCheck == true)
+                    Boolean titleCheck = db.checkTitle(articletitle); //Checks if title already exists in DB
+                    if(titleCheck == true) {
+                        //Change text colors to red as 'invalid'
+                        headertitle.setTextColor(0xFFAE0700);
                         Toast.makeText(SubmitArticle.this, "An article with the same title already exists.", Toast.LENGTH_LONG).show();
+                    }
+                    //If title is unique
                     else
                     {
-                        Boolean result = db.insertArticle(articletitle, articletext, categoryChoice, imageData);
-                        if(result == true)
+                        Boolean result = db.insertArticle(articletitle, articletext, categoryChoice, imageData); //Insert article into DB
+                        if(result == true) //if successful
                         {
-                            openHomePage();
+                            openHomePage(); //Return to Home Activity (method below)
                             Toast.makeText(SubmitArticle.this, "Successfully Posted!", Toast.LENGTH_SHORT).show();
                             finish();
                         }
-                        else
+                        else //if failed
                         {
-                            Toast.makeText(SubmitArticle.this, "Submission has failed.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(SubmitArticle.this, "Submission has failed.\nPlease try again.", Toast.LENGTH_SHORT).show();
                         }
                     }
                 }
@@ -117,39 +148,57 @@ public class SubmitArticle extends AppCompatActivity implements AdapterView.OnIt
         });
     }
 
+<<<<<<< Updated upstream
+=======
+    //When submission is successful
+>>>>>>> Stashed changes
     public void openHomePage() {
         Intent intent = new Intent(this, Home.class);
         SubmitArticle.this.startActivity(intent);
     }
 
+    //Sets selected category to the one clicked on by user
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         categoryChoice = parent.getItemAtPosition(position).toString();
     }
 
+    //Inserted as standard, a category is always set, 'Politics' by default as it is currently the first on list
     @Override
     public void onNothingSelected(AdapterView<?> parent)
     {
     }
 
-    public void ClickMenu(View view)
+    //Sidemenu buttons
+    public void ClickMenu(View view) //On clicking burger menu icon
     {
         Home.openDrawer(drawerLayout);
     }
-    public void ClickBack(View view)
+    public void ClickBack(View view) //On clicking burger menu icon when menu is open
     {
         Home.closeDrawer(drawerLayout);
     }
+
+    //On clicking 'Articles' to return to Home Activity
     public void ClickHome(View view)
     {
+<<<<<<< Updated upstream
         finish();
         Home.redirectActivity(this, Home.class);
     }
+=======
+        Home.closeDrawer(drawerLayout);
+        Home.redirectActivity(this, Home.class);
+    }
+
+    //On clicking 'Submit Article', refreshes Activity
+>>>>>>> Stashed changes
     public void ClickArticleCreate(View view)
     {
         recreate();
     }
 
+<<<<<<< Updated upstream
     public void ClickSavedArticles(View view)
     {
         //REDIRECT TO SUBMIT AN ARTICLE
@@ -175,6 +224,9 @@ public class SubmitArticle extends AppCompatActivity implements AdapterView.OnIt
         Home.redirectActivity(this, Opinion.class);
     }
 
+=======
+    //For image upload
+>>>>>>> Stashed changes
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data)
     {
@@ -186,9 +238,10 @@ public class SubmitArticle extends AppCompatActivity implements AdapterView.OnIt
             try
             {
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), imageUri);
+                //Scales down image quality due to the maximum size that they will be shown in
                 Bitmap resize = Bitmap.createScaledBitmap(bitmap, (int)(bitmap.getWidth()*0.3), (int)(bitmap.getHeight()*0.3), true);
                 imgUpload.setImageBitmap(resize);
-                imageData = getByteArray(resize);
+                imageData = getByteArray(resize); //check method below
             }
             catch(IOException e)
             {
@@ -197,19 +250,11 @@ public class SubmitArticle extends AppCompatActivity implements AdapterView.OnIt
         }
     }
 
+    //sets image output to byte array form
     public static byte[] getByteArray(Bitmap bitmap)
     {
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.PNG, 0, outputStream);
         return outputStream.toByteArray();
-    }
-
-    private boolean hasImage(@NonNull ImageView view)
-    {
-        Drawable drawable = view.getDrawable();
-        boolean hasImage = (drawable != null);
-        if (hasImage && (drawable instanceof BitmapDrawable))
-            hasImage = ((BitmapDrawable)drawable).getBitmap() != null;
-        return hasImage;
     }
 }

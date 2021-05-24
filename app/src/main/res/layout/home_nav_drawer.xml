@@ -1,102 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--Sidebar Menu-->
 <ScrollView
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:orientation="vertical">
 
+        <!--Sidebar Menu Icon to close-->
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="ClickBack"
             android:layout_margin="10dp"
-            android:src="@drawable/ic_menu" />
+            android:src="@drawable/ic_menu"
+            android:contentDescription="@string/toolbar_menu" />
 
+        <!--Goes back to list of articles-->
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:text="Articles"
+            android:text="@string/nav_articles"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold"
             android:onClick="ClickHome"
             android:layout_marginTop="25dp" />
 
+        <!--Goes to activity to submit an article-->
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:text="Submit Article"
+            android:text="@string/nav_submit_article"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold"
             android:onClick="ClickArticleCreate"/>
 
+        <!--Goes to the list of followed authors-->
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:text="Following"
+            android:text="@string/nav_following"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold" />
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="Pinned Articles"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:onClick="ClickSavedArticles"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="Categories"
-            android:textSize="25sp"
-            android:textAlignment="center"
-            android:layout_marginTop="25dp"/>
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="Politics"
-            android:backgroundTint="#BD88FD"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_marginTop="25dp"
-            android:onClick="ClickPolitics"/>
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="Social"
-            android:backgroundTint="#EDE070"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:onClick="ClickSocial"/>
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="Opinion"
-            android:backgroundTint="#9CDDD7"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:onClick="ClickOpinion"/>
     </LinearLayout>
 </ScrollView>

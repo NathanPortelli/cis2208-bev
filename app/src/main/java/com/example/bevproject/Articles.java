@@ -11,6 +11,7 @@ public class Articles
     private Bitmap image;
     private int pin;
 
+    //Constructor
     public Articles(String title, String categ, Bitmap image, String content, int pin/*, String author*/) {
         this.title = title;
         this.categ = categ;
@@ -29,6 +30,5 @@ public class Articles
         return image;
     }
     public String getContent() { return content; }
-    public int getPin() { return pin; }
     public String getAuthor() { return author; }
 }
