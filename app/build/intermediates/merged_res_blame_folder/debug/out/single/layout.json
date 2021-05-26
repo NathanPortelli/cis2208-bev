@@ -1,11 +1,11 @@
 [
     {
-        "merged": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_social.xml",
-        "source": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\src\\main\\res\\layout\\fragment_social.xml"
-    },
-    {
         "merged": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_my_articles.xml",
         "source": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\src\\main\\res\\layout\\activity_my_articles.xml"
+    },
+    {
+        "merged": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_social.xml",
+        "source": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\src\\main\\res\\layout\\fragment_social.xml"
     },
     {
         "merged": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_article.xml",

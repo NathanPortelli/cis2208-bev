@@ -115,7 +115,7 @@ public class DBHelper extends SQLiteOpenHelper
             int textIndex = cursor.getColumnIndex(ARTICLES_COLUMN_TEXT);
             int categIndex = cursor.getColumnIndex(ARTICLES_COLUMN_CATEG);
             int pinIndex = cursor.getColumnIndex(ARTICLES_COLUMN_PIN);
-            int idIndex = cursor.getColumnIndex(ARTICLES_COLUMN_ID);
+            int idIndex = cursor.getColumnIndex(USERS_TABLE_NAME);
 
             String title = cursor.getString(titleIndex);
             String categ = cursor.getString(categIndex);
