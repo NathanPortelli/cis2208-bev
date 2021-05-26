@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Activity when reading a particular article-->
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/homeLayout"
+    tools:context=".ArticleItem">
+
+    <!--In order to scroll up and down the article-->
+    <ScrollView
+        android:layout_height="match_parent"
+        android:layout_width="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp">
+
+            <!--Calling toolbar to return to Home Activity-->
+            <include
+                android:id="@+id/include"
+                layout="@layout/back_toolbar" />
+
+            <!--Image related to the particular article-->
+            <ImageView
+                android:id="@+id/itemImage"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="centerCrop"
+                android:layout_marginTop="50dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:contentDescription="@string/item_image" />
+
+            <!--Category the article is listed under-->
+            <TextView
+                android:id="@+id/itemCateg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/article_category"
+                android:padding="10dp"
+                android:textAlignment="center"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/itemImage" />
+
+            <!--Title of the article-->
+            <TextView
+                android:id="@+id/itemTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/article_title"
+                android:textAlignment="center"
+                android:textSize="35sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/itemCateg" />
+
+            <!--Button linked to the author page of the user who wrote article-->
+            <Button
+                android:id="@+id/btnItemAuthor"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="@string/article_author"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toStartOf="@+id/itemPin"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/itemTitle" />
+
+            <!--Button used to pin an article to 'Pinned Articles' section-->
+            <ImageButton
+                android:id="@+id/itemPin"
+                android:layout_width="75dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="24dp"
+                android:background="@null"
+                android:onClick="ButtonSave"
+                android:src="@drawable/ic_pin"
+                app:layout_constraintEnd_toEndOf="@+id/itemCopy"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/btnItemAuthor"
+                app:layout_constraintTop_toBottomOf="@+id/itemTitle"
+                android:contentDescription="@string/pin_article" />
+
+            <!--Button used to copy the text of the article to clipboard-->
+            <ImageButton
+                android:id="@+id/itemCopy"
+                android:layout_width="75dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="24dp"
+                android:background="@null"
+                android:onClick="ButtonCopy"
+                android:src="@drawable/ic_copy"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/itemPin"
+                app:layout_constraintTop_toBottomOf="@+id/itemTitle"
+                android:contentDescription="@string/copy_article" />
+
+            <!--Actual content of article-->
+            <TextView
+                android:id="@+id/itemContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/article_details"
+                android:textSize="18sp"
+                android:layout_marginTop="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnItemAuthor" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</androidx.drawerlayout.widget.DrawerLayout>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Sidebar Menu-->
+<ScrollView
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:background="#2E2D2D"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="vertical">
+
+        <!--Sidebar Menu Icon to close-->
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="ClickBack"
+            android:layout_margin="10dp"
+            android:src="@drawable/ic_menu"
+            android:contentDescription="@string/toolbar_menu" />
+
+        <!--Goes back to list of articles-->
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="@string/nav_articles"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:onClick="ClickHome"
+            android:layout_marginTop="25dp" />
+
+        <!--Goes to activity to submit an article-->
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="@string/nav_submit_article"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:onClick="ClickArticleCreate"/>
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Activity used when 'Submit an Article' or through floating action button-->
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/homeLayout"
+    tools:context=".Home">
+
+    <!--In order to scroll up and down the form-->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!--Calling toolbar-->
+            <include
+                android:id="@+id/include"
+                layout="@layout/main_toolbar" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="30dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="30dp">
+
+                <!--Title of Form-->
+                <TextView
+                    android:id="@+id/articleTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30sp"
+                    android:text="@string/submit_an_article"
+                    android:textAlignment="center"
+                    android:textSize="40sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <!--Header of 'Title of Article'-->
+                <TextView
+                    android:id="@+id/txArticleTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30sp"
+                    android:paddingBottom="10dp"
+                    android:text="@string/article_title"
+                    android:textSize="30sp"
+                    app:layout_constraintTop_toBottomOf="@+id/articleTitle"
+                    tools:layout_editor_absoluteX="16dp" />
+
+                <!--Input of 'Title of Article'-->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/edArticleTitleField"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txArticleTitle"
+                    android:hint="@string/title_of_article">
+
+                    <!--Actual Input of 'Title of Article'-->
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edArticleTitle"
+                        android:scrollbars="vertical"
+                        android:inputType="text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!--Header of 'Category'-->
+                <TextView
+                    android:id="@+id/txArticleCategory"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:paddingBottom="10dp"
+                    android:text="@string/article_category"
+                    android:textSize="30sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/edArticleTitleField" />
+
+                <!--Input of 'Category'-->
+                <Spinner
+                    android:id="@+id/spArticleCategory"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:entries="@array/categories"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txArticleCategory" />
+
+                <!--Header of 'Article Text'-->
+                <TextView
+                    android:id="@+id/txArticleText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:paddingBottom="10dp"
+                    android:text="@string/article_text"
+                    android:textSize="30sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/spArticleCategory" />
+
+                <!--Input of 'Article Text'-->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/edArticleTextField"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txArticleText"
+                    android:hint="@string/write_the_article_here">
+
+                    <!--Actual Input of 'Article Text'-->
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edArticleText"
+                        android:scrollbars="vertical"
+                        android:inputType="textMultiLine"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!--Header of 'Thumbnail'-->
+                <TextView
+                    android:id="@+id/articleImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30sp"
+                    android:paddingBottom="10dp"
+                    android:text="@string/article_thumbnail"
+                    android:textSize="30sp"
+                    app:layout_constraintTop_toBottomOf="@+id/edArticleTextField"
+                    tools:layout_editor_absoluteX="16dp" />
+
+                <!--Button to select an image for thumbnail-->
+                <ImageButton
+                    android:id="@+id/articleImgUpload"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/articleImage"
+                    android:contentDescription="@string/upload_image" />
+
+                <!--Text on button to select an image for thumbnail-->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/upload_image"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:shadowColor="@color/black"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="1"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/articleImgUpload"
+                    app:layout_constraintEnd_toEndOf="@+id/articleImgUpload"
+                    app:layout_constraintStart_toStartOf="@+id/articleImgUpload"
+                    app:layout_constraintTop_toBottomOf="@+id/articleImage" />
+
+                <!--Submission Button-->
+                <Button
+                    android:id="@+id/btnSignUpRegister"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:layout_marginHorizontal="60dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="40dp"
+                    android:text="@string/submit"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    app:layout_constraintTop_toBottomOf="@+id/articleImgUpload"
+                    tools:layout_editor_absoluteX="60dp" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+    <!--Sidebar Menu-->
+    <com.google.android.material.navigation.NavigationView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true">
+        <include
+            layout="@layout/home_nav_drawer"/>
+    </com.google.android.material.navigation.NavigationView>
+</androidx.drawerlayout.widget.DrawerLayout>

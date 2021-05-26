@@ -1,0 +1,82 @@
+[
+    {
+        "merged": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_my_articles.xml",
+        "source": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\src\\main\\res\\layout\\activity_my_articles.xml"
+    },
+    {
+        "merged": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_social.xml",
+        "source": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\src\\main\\res\\layout\\fragment_social.xml"
+    },
+    {
+        "merged": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_article.xml",
+        "source": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\src\\main\\res\\layout\\activity_article.xml"
+    },
+    {
+        "merged": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\back_toolbar.xml",
+        "source": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\src\\main\\res\\layout\\back_toolbar.xml"
+    },
+    {
+        "merged": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_user_details.xml",
+        "source": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\src\\main\\res\\layout\\activity_user_details.xml"
+    },
+    {
+        "merged": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\item_article.xml",
+        "source": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\src\\main\\res\\layout\\item_article.xml"
+    },
+    {
+        "merged": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_profile.xml",
+        "source": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\src\\main\\res\\layout\\activity_profile.xml"
+    },
+    {
+        "merged": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_home.xml",
+        "source": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\src\\main\\res\\layout\\activity_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_submit.xml",
+        "source": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\src\\main\\res\\layout\\activity_submit.xml"
+    },
+    {
+        "merged": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_login.xml",
+        "source": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\src\\main\\res\\layout\\activity_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_author_page.xml",
+        "source": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\src\\main\\res\\layout\\activity_author_page.xml"
+    },
+    {
+        "merged": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_signup.xml",
+        "source": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\src\\main\\res\\layout\\activity_signup.xml"
+    },
+    {
+        "merged": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\spinner_list.xml",
+        "source": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\src\\main\\res\\layout\\spinner_list.xml"
+    },
+    {
+        "merged": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_pinned.xml",
+        "source": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\src\\main\\res\\layout\\fragment_pinned.xml"
+    },
+    {
+        "merged": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_main.xml",
+        "source": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_politics.xml",
+        "source": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\src\\main\\res\\layout\\fragment_politics.xml"
+    },
+    {
+        "merged": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\main_toolbar.xml",
+        "source": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\src\\main\\res\\layout\\main_toolbar.xml"
+    },
+    {
+        "merged": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_opinion.xml",
+        "source": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\src\\main\\res\\layout\\fragment_opinion.xml"
+    },
+    {
+        "merged": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\home_nav_drawer.xml",
+        "source": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\src\\main\\res\\layout\\home_nav_drawer.xml"
+    },
+    {
+        "merged": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_home.xml",
+        "source": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\src\\main\\res\\layout\\fragment_home.xml"
+    }
+]

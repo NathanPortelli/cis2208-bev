@@ -1,0 +1,86 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.bevproject"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+8-->C:\Users\berna\Desktop\BEVProject\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="30" />
+9-->C:\Users\berna\Desktop\BEVProject\app\src\main\AndroidManifest.xml
+10
+11    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+11-->C:\Users\berna\Desktop\BEVProject\app\src\main\AndroidManifest.xml:5:5-80
+11-->C:\Users\berna\Desktop\BEVProject\app\src\main\AndroidManifest.xml:5:22-77
+12    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+12-->C:\Users\berna\Desktop\BEVProject\app\src\main\AndroidManifest.xml:6:5-81
+12-->C:\Users\berna\Desktop\BEVProject\app\src\main\AndroidManifest.xml:6:22-78
+13
+14    <application
+14-->C:\Users\berna\Desktop\BEVProject\app\src\main\AndroidManifest.xml:8:5-34:19
+15        android:allowBackup="true"
+15-->C:\Users\berna\Desktop\BEVProject\app\src\main\AndroidManifest.xml:9:9-35
+16        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+16-->[androidx.core:core:1.3.2] C:\Users\berna\.gradle\caches\transforms-2\files-2.1\870f77caa98361babb7de475f36bb8a2\core-1.3.2\AndroidManifest.xml:24:18-86
+17        android:debuggable="true"
+18        android:icon="@mipmap/bev_logo_foreground"
+18-->C:\Users\berna\Desktop\BEVProject\app\src\main\AndroidManifest.xml:10:9-51
+19        android:label="A Bird&apos;s Eye View"
+19-->C:\Users\berna\Desktop\BEVProject\app\src\main\AndroidManifest.xml:11:9-47
+20        android:roundIcon="@mipmap/bev_logo_round"
+20-->C:\Users\berna\Desktop\BEVProject\app\src\main\AndroidManifest.xml:12:9-51
+21        android:supportsRtl="true"
+21-->C:\Users\berna\Desktop\BEVProject\app\src\main\AndroidManifest.xml:13:9-35
+22        android:testOnly="true"
+23        android:theme="@style/Theme.BEVProject" >
+23-->C:\Users\berna\Desktop\BEVProject\app\src\main\AndroidManifest.xml:14:9-48
+24        <activity android:name="com.example.bevproject.MyArticles" />
+24-->C:\Users\berna\Desktop\BEVProject\app\src\main\AndroidManifest.xml:15:9-57
+24-->C:\Users\berna\Desktop\BEVProject\app\src\main\AndroidManifest.xml:15:19-45
+25        <activity
+25-->C:\Users\berna\Desktop\BEVProject\app\src\main\AndroidManifest.xml:16:9-19:67
+26            android:name="com.example.bevproject.AuthorPage"
+26-->C:\Users\berna\Desktop\BEVProject\app\src\main\AndroidManifest.xml:17:13-39
+27            android:label="@string/title_activity_author_page"
+27-->C:\Users\berna\Desktop\BEVProject\app\src\main\AndroidManifest.xml:18:13-63
+28            android:theme="@style/Theme.BEVProject.NoActionBar" />
+28-->C:\Users\berna\Desktop\BEVProject\app\src\main\AndroidManifest.xml:19:13-64
+29        <activity android:name="com.example.bevproject.UserDetails" />
+29-->C:\Users\berna\Desktop\BEVProject\app\src\main\AndroidManifest.xml:20:9-49
+29-->C:\Users\berna\Desktop\BEVProject\app\src\main\AndroidManifest.xml:20:19-46
+30        <activity android:name="com.example.bevproject.Profile" />
+30-->C:\Users\berna\Desktop\BEVProject\app\src\main\AndroidManifest.xml:21:9-45
+30-->C:\Users\berna\Desktop\BEVProject\app\src\main\AndroidManifest.xml:21:19-42
+31        <activity android:name="com.example.bevproject.MainActivity" >
+31-->C:\Users\berna\Desktop\BEVProject\app\src\main\AndroidManifest.xml:22:9-28:20
+31-->C:\Users\berna\Desktop\BEVProject\app\src\main\AndroidManifest.xml:22:19-47
+32            <intent-filter>
+32-->C:\Users\berna\Desktop\BEVProject\app\src\main\AndroidManifest.xml:23:13-27:29
+33                <action android:name="android.intent.action.MAIN" />
+33-->C:\Users\berna\Desktop\BEVProject\app\src\main\AndroidManifest.xml:24:17-69
+33-->C:\Users\berna\Desktop\BEVProject\app\src\main\AndroidManifest.xml:24:25-66
+34
+35                <category android:name="android.intent.category.LAUNCHER" />
+35-->C:\Users\berna\Desktop\BEVProject\app\src\main\AndroidManifest.xml:26:17-77
+35-->C:\Users\berna\Desktop\BEVProject\app\src\main\AndroidManifest.xml:26:27-74
+36            </intent-filter>
+37        </activity>
+38        <activity android:name="com.example.bevproject.SignUp" />
+38-->C:\Users\berna\Desktop\BEVProject\app\src\main\AndroidManifest.xml:29:9-44
+38-->C:\Users\berna\Desktop\BEVProject\app\src\main\AndroidManifest.xml:29:19-41
+39        <activity android:name="com.example.bevproject.Login" />
+39-->C:\Users\berna\Desktop\BEVProject\app\src\main\AndroidManifest.xml:30:9-43
+39-->C:\Users\berna\Desktop\BEVProject\app\src\main\AndroidManifest.xml:30:19-40
+40        <activity android:name="com.example.bevproject.Home" />
+40-->C:\Users\berna\Desktop\BEVProject\app\src\main\AndroidManifest.xml:31:9-42
+40-->C:\Users\berna\Desktop\BEVProject\app\src\main\AndroidManifest.xml:31:19-39
+41        <activity android:name="com.example.bevproject.SubmitArticle" />
+41-->C:\Users\berna\Desktop\BEVProject\app\src\main\AndroidManifest.xml:32:9-51
+41-->C:\Users\berna\Desktop\BEVProject\app\src\main\AndroidManifest.xml:32:19-48
+42        <activity android:name="com.example.bevproject.ArticleItem" />
+42-->C:\Users\berna\Desktop\BEVProject\app\src\main\AndroidManifest.xml:33:9-49
+42-->C:\Users\berna\Desktop\BEVProject\app\src\main\AndroidManifest.xml:33:19-46
+43    </application>
+44
+45</manifest>
