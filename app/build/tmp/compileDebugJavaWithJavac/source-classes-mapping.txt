@@ -28,9 +28,8 @@ com/example/bevproject/Users.java
  com.example.bevproject.Users
 com/example/bevproject/databinding/FragmentOpinionBinding.java
  com.example.bevproject.databinding.FragmentOpinionBinding
-com/example/bevproject/Login.java
- com.example.bevproject.Login
- com.example.bevproject.Login$1
+com/example/bevproject/databinding/ActivityAuthorPageBinding.java
+ com.example.bevproject.databinding.ActivityAuthorPageBinding
 com/example/bevproject/databinding/ActivityMainBinding.java
  com.example.bevproject.databinding.ActivityMainBinding
 com/example/bevproject/ArticleItem.java
@@ -45,10 +44,8 @@ com/example/bevproject/SignUp.java
 com/example/bevproject/PoliticsFragment.java
  com.example.bevproject.PoliticsFragment
  com.example.bevproject.PoliticsFragment$1
-com/example/bevproject/SubmitArticle.java
- com.example.bevproject.SubmitArticle
- com.example.bevproject.SubmitArticle$1
- com.example.bevproject.SubmitArticle$2
+com/example/bevproject/databinding/FragmentSocialBinding.java
+ com.example.bevproject.databinding.FragmentSocialBinding
 com/example/bevproject/databinding/BackToolbarBinding.java
  com.example.bevproject.databinding.BackToolbarBinding
 com/example/bevproject/OpinionFragment.java
@@ -73,32 +70,34 @@ com/example/bevproject/databinding/FragmentPinnedBinding.java
  com.example.bevproject.databinding.FragmentPinnedBinding
 com/example/bevproject/databinding/ActivityArticleBinding.java
  com.example.bevproject.databinding.ActivityArticleBinding
-com/example/bevproject/Profile.java
- com.example.bevproject.Profile
- com.example.bevproject.Profile$1
+com/example/bevproject/databinding/FragmentPoliticsBinding.java
+ com.example.bevproject.databinding.FragmentPoliticsBinding
 com/example/bevproject/PinnedFragment.java
  com.example.bevproject.PinnedFragment
  com.example.bevproject.PinnedFragment$1
 com/example/bevproject/databinding/ActivityMyArticlesBinding.java
  com.example.bevproject.databinding.ActivityMyArticlesBinding
-com/example/bevproject/databinding/FragmentPoliticsBinding.java
- com.example.bevproject.databinding.FragmentPoliticsBinding
-com/example/bevproject/databinding/ActivityAuthorPageBinding.java
- com.example.bevproject.databinding.ActivityAuthorPageBinding
-com/example/bevproject/databinding/FragmentSocialBinding.java
- com.example.bevproject.databinding.FragmentSocialBinding
-com/example/bevproject/UserDetails.java
- com.example.bevproject.UserDetails
- com.example.bevproject.UserDetails$1
+com/example/bevproject/HomeFragment.java
+ com.example.bevproject.HomeFragment
+ com.example.bevproject.HomeFragment$1
+com/example/bevproject/Login.java
+ com.example.bevproject.Login
+ com.example.bevproject.Login$1
 com/example/bevproject/PinnedArticles.java
  com.example.bevproject.PinnedArticles
  com.example.bevproject.PinnedArticles$1
  com.example.bevproject.PinnedArticles$2
-com/example/bevproject/HomeFragment.java
- com.example.bevproject.HomeFragment
- com.example.bevproject.HomeFragment$1
+com/example/bevproject/UserDetails.java
+ com.example.bevproject.UserDetails
+ com.example.bevproject.UserDetails$1
+com/example/bevproject/Profile.java
+ com.example.bevproject.Profile
+ com.example.bevproject.Profile$1
 com/example/bevproject/Home.java
  com.example.bevproject.Home
  com.example.bevproject.Home$1
  com.example.bevproject.Home$2
- com.example.bevproject.Home$3
+com/example/bevproject/SubmitArticle.java
+ com.example.bevproject.SubmitArticle
+ com.example.bevproject.SubmitArticle$1
+ com.example.bevproject.SubmitArticle$2

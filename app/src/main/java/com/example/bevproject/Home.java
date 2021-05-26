@@ -44,19 +44,11 @@ public class Home extends AppCompatActivity
         drawerLayout = findViewById(R.id.homeLayout); //for sidebar menu
 
         db = new DBHelper(this);
-        articleList = db.getAllArticles();
-        rvArticles = findViewById(R.id.rvArticles);
-        rvArticles.setHasFixedSize(true);
-        layoutManager = new LinearLayoutManager(this);
+        getSupportFragmentManager().beginTransaction().replace(R.id.mainFrame, new HomeFragment()).commit();
 
         user = (Users) getIntent().getSerializableExtra("userFromAccount");
         if (user == null) // Important check to see which user information is being passed depending on the user's activity
             user = (Users) getIntent().getSerializableExtra("userFromLogin");
-
-        setOnClickListener();
-        rvArticles.setLayoutManager(layoutManager);
-        articleAdapter = new ArticleAdapter(this, articleList, rvArticles, listener);
-        rvArticles.setAdapter(articleAdapter);
 
         //For Bottom Navigator Tab
         BottomNavigationView btnNav = findViewById(R.id.bottomnavview);
@@ -74,29 +66,6 @@ public class Home extends AppCompatActivity
                 startActivity(intent);
             }
         });
-    }
-
-    //Once user clicks on article
-    private void setOnClickListener()
-    {
-        listener = new ArticleAdapter.ArticleViewClickListener() {
-            @Override
-            public void onClick(View v, int pos)
-            {
-                //Sends data related to article to article activity
-                Bitmap bmp = articleList.get(pos).getImage();
-                ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                bmp.compress(Bitmap.CompressFormat.PNG, 0, baos);
-
-                Intent intent = new Intent(getApplicationContext(), ArticleItem.class);
-                intent.putExtra("articleTitle", articleList.get(pos).getTitle());
-                intent.putExtra("articleCateg", articleList.get(pos).getCateg());
-                intent.putExtra("articleText", articleList.get(pos).getContent());
-                intent.putExtra("articleAuthor", articleList.get(pos).getAuthor());
-                intent.putExtra("articleImage", baos.toByteArray());
-                startActivity(intent);
-            }
-        };
     }
 
     //When user selects a category from bottom navigation tabs

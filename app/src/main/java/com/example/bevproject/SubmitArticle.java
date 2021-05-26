@@ -1,16 +1,12 @@
 package com.example.bevproject;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
-import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -20,11 +16,9 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
@@ -156,8 +150,8 @@ public class SubmitArticle extends AppCompatActivity implements AdapterView.OnIt
 
     //When submission is successful
     public void openMyArticles() {
-        Intent intent = new Intent(this, MyArticles.class);
-        intent.putExtra("user", currentUser);
+        Intent intent = new Intent(this, Home.class);
+        intent.putExtra("userFromLogin", currentUser);
         startActivity(intent);
     }
 

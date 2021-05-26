@@ -39,7 +39,7 @@ public class Profile extends AppCompatActivity
 
         byte[] pic = user.getImage();
         Bitmap bitmap = BitmapFactory.decodeByteArray(pic, 0, pic.length); //Converting byte to bitmap
-        Bitmap btm = Bitmap.createScaledBitmap(bitmap,(int)(bitmap.getWidth()*0.3),(int)(bitmap.getWidth()*0.3),true);
+        Bitmap btm = Bitmap.createScaledBitmap(bitmap,(int)(bitmap.getWidth()),(int)(bitmap.getWidth()),true);
         image.setImageBitmap(btm);
 
         viewMyArticles.setOnClickListener(new View.OnClickListener() {

@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.ByteArrayOutputStream;
@@ -25,6 +26,7 @@ public class UserDetails extends AppCompatActivity {
 
     ImageButton imgUpload;
     EditText name, email, pass, bio;
+    TextView txImage, txName, txEmail, txPassword, txBio;
     byte[] imageData;
     private Users user;
     Pattern patt;
@@ -42,6 +44,12 @@ public class UserDetails extends AppCompatActivity {
         email = findViewById(R.id.edEmail);
         pass = findViewById(R.id.edPassword);
         bio = findViewById(R.id.edBio);
+
+        //TextView declarations
+        txImage = findViewById(R.id.txImage);
+        txName = findViewById(R.id.txName);
+        txEmail = findViewById(R.id.txPassword);
+        txBio = findViewById(R.id.txBio);
 
         user = (Users) getIntent().getSerializableExtra("user");
         //Setting EditTexts to display current user's details
@@ -83,14 +91,26 @@ public class UserDetails extends AppCompatActivity {
         currentUser.setBio(bio.getText().toString());
         currentUser.setImage(imageData);
 
+        //Resetting colors of text
+        txName.setTextColor(0xFFFFFFFF);
+        txEmail.setTextColor(0xFFFFFFFF);
+        txPassword.setTextColor(0xFFFFFFFF);
+        txBio.setTextColor(0xFFFFFFFF);
+
         if(name.getText().toString().equals("") || email.getText().toString().equals("") || pass.getText().toString().equals("") || bio.getText().toString().equals(""))
             Toast.makeText(this, "Please fill in all the information.", Toast.LENGTH_SHORT).show();
-        else if(!validateName(name.getText().toString()))
+        else if(!validateName(name.getText().toString())) {
+            txName.setTextColor(0xFFAE0700);
             Toast.makeText(this, "Please enter a valid name (No numbers).", Toast.LENGTH_SHORT).show();
-        else if(!validateEmail(email.getText().toString()))
+        }
+        else if(!validateEmail(email.getText().toString())){
+            txEmail.setTextColor(0xFFAE0700);
             Toast.makeText(this, "Please enter a valid email.", Toast.LENGTH_SHORT).show();
-        else if(pass.getText().toString().length()<8 && !validatePass(pass.getText().toString()))
+        }
+        else if(pass.getText().toString().length()<8 && !validatePass(pass.getText().toString())){
+            txPassword.setTextColor(0xFFAE0700);
             Toast.makeText(this, "Please follow the password guidelines.", Toast.LENGTH_SHORT).show();
+        }
         else {
             if (db.updateUser(currentUser)) { //Checking whether update user was successful
                 Intent intent = new Intent(UserDetails.this, Profile.class);
