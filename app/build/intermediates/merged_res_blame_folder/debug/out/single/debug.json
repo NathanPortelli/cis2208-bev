@@ -8,12 +8,12 @@
         "source": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\src\\main\\res\\drawable-anydpi\\ic_home.xml"
     },
     {
-        "merged": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_politics.xml.flat",
-        "source": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\src\\main\\res\\layout\\fragment_politics.xml"
-    },
-    {
         "merged": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_signup.xml.flat",
         "source": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\src\\main\\res\\layout\\activity_signup.xml"
+    },
+    {
+        "merged": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_politics.xml.flat",
+        "source": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\src\\main\\res\\layout\\fragment_politics.xml"
     },
     {
         "merged": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi_ic_back.xml.flat",
@@ -68,32 +68,32 @@
         "source": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\src\\main\\res\\drawable-mdpi\\ic_profile.png"
     },
     {
-        "merged": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_menu.png.flat",
-        "source": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\src\\main\\res\\drawable-xhdpi\\ic_menu.png"
-    },
-    {
         "merged": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_opinion.png.flat",
         "source": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\src\\main\\res\\drawable-xhdpi\\ic_opinion.png"
     },
     {
-        "merged": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi_ic_politics.xml.flat",
-        "source": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\src\\main\\res\\drawable-anydpi\\ic_politics.xml"
+        "merged": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_menu.png.flat",
+        "source": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\src\\main\\res\\drawable-xhdpi\\ic_menu.png"
     },
     {
         "merged": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_bev_logo_foreground.png.flat",
         "source": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\src\\main\\res\\mipmap-hdpi\\bev_logo_foreground.png"
     },
     {
+        "merged": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi_ic_politics.xml.flat",
+        "source": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\src\\main\\res\\drawable-anydpi\\ic_politics.xml"
+    },
+    {
         "merged": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_bev_logo_background.png.flat",
         "source": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\src\\main\\res\\mipmap-xxhdpi\\bev_logo_background.png"
     },
     {
-        "merged": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_back.png.flat",
-        "source": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\src\\main\\res\\drawable-xxhdpi\\ic_back.png"
-    },
-    {
         "merged": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_bev_logo_round.png.flat",
         "source": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\src\\main\\res\\mipmap-hdpi\\bev_logo_round.png"
+    },
+    {
+        "merged": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_back.png.flat",
+        "source": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\src\\main\\res\\drawable-xxhdpi\\ic_back.png"
     },
     {
         "merged": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\build\\intermediates\\res\\merged\\debug\\layout_spinner_list.xml.flat",
@@ -112,12 +112,12 @@
         "source": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\src\\main\\res\\mipmap-anydpi-v26\\bev_logo.xml"
     },
     {
-        "merged": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_politics.png.flat",
-        "source": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\src\\main\\res\\drawable-mdpi\\ic_politics.png"
-    },
-    {
         "merged": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_add.png.flat",
         "source": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\src\\main\\res\\drawable-hdpi\\ic_add.png"
+    },
+    {
+        "merged": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_politics.png.flat",
+        "source": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\src\\main\\res\\drawable-mdpi\\ic_politics.png"
     },
     {
         "merged": "C:\\Users\\berna\\Desktop\\BEVProject\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_social.xml.flat",

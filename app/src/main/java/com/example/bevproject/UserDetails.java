@@ -48,7 +48,8 @@ public class UserDetails extends AppCompatActivity {
         //TextView declarations
         txImage = findViewById(R.id.txImage);
         txName = findViewById(R.id.txName);
-        txEmail = findViewById(R.id.txPassword);
+        txEmail = findViewById(R.id.txEmail);
+        txPassword = findViewById(R.id.txPassword);
         txBio = findViewById(R.id.txBio);
 
         user = (Users) getIntent().getSerializableExtra("user");

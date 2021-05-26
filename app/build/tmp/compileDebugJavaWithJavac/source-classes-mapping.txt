@@ -87,17 +87,17 @@ com/example/bevproject/PinnedArticles.java
  com.example.bevproject.PinnedArticles
  com.example.bevproject.PinnedArticles$1
  com.example.bevproject.PinnedArticles$2
+com/example/bevproject/SubmitArticle.java
+ com.example.bevproject.SubmitArticle
+ com.example.bevproject.SubmitArticle$1
+ com.example.bevproject.SubmitArticle$2
+com/example/bevproject/Home.java
+ com.example.bevproject.Home
+ com.example.bevproject.Home$1
+ com.example.bevproject.Home$2
 com/example/bevproject/UserDetails.java
  com.example.bevproject.UserDetails
  com.example.bevproject.UserDetails$1
 com/example/bevproject/Profile.java
  com.example.bevproject.Profile
  com.example.bevproject.Profile$1
-com/example/bevproject/Home.java
- com.example.bevproject.Home
- com.example.bevproject.Home$1
- com.example.bevproject.Home$2
-com/example/bevproject/SubmitArticle.java
- com.example.bevproject.SubmitArticle
- com.example.bevproject.SubmitArticle$1
- com.example.bevproject.SubmitArticle$2
